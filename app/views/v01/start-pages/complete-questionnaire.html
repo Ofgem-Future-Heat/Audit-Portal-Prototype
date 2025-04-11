@@ -1,0 +1,82 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<style>
+    .govuk-body {
+        margin-bottom: 16px;
+    }
+
+    .govuk-list li {
+        margin-bottom: 12px; /* Added spacing between links */
+    }
+
+    .anchor {
+        margin-top: -16px;
+    }
+</style>
+
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+        <p class="govuk-body">Contents</p>
+
+        <ul class="govuk-list" style="padding-bottom: 10px;">
+            <li>
+                &mdash;&nbsp;&nbsp;<a class="govuk-link" href="overview.html">Overview</a>
+            </li>
+            <li>
+                &mdash;&nbsp;&nbsp;<a class="govuk-link" href="what-you-will-need.html">What you'll need</a>
+            </li>
+            <li>
+                &mdash;&nbsp;&nbsp;Complete questionnaire
+            </li>
+        </ul>
+
+        <hr style="border: 1px solid #d6d8da;">
+
+        <h2 class="govuk-heading-m" style="padding-top: 20px;">Complete questionnaire</h2>
+
+        <p>
+            Complete the questionnaire and upload copies of the requested documents by <strong>{Date: DD MONTH YEAR }</strong>.
+        </p>
+        <p>
+            You can save your progress at any time
+        </p>
+
+        <p>
+            If you cannot complete the questionnaire and provide the requested information, contact us as soon as possible.<br>
+        <p>
+            You can:
+        </p>
+        <ul class="govuk-list govuk-list--bullet">
+            <li>email us at <a class="govuk-link" href="mailto:BUSDeskAudit@ofgem.gov.uk">BUSDeskAudit@ofgem.gov.uk</a></li>
+            <li>phone the BUS enquiries team on 0330 053 2006</li>
+        </ul>
+
+        <div class="govuk-inset-text">
+            You'll be asked to upload some documents that you provided with the BUS application. We use them as part of our separate audit checks.
+            We appreciate your help with providing this information again.
+        </div>
+
+        <a href="/v01/complete-questionnaire/first-section-not-started.html" role="button" draggable="false" class="govuk-button govuk-button--start" data-module="govuk-button">
+            Start now
+            <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false">
+                <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
+            </svg>
+        </a>
+
+
+        <h3 class="govuk-heading-s" style="padding-top: 20px; display: flex; align-items: center;">
+            <span style=" font-size: 1.2em; margin-right: 8px; color: #505A5F;">&#x1F878;</span>Previous
+        </h3>
+
+        <p class="govuk-!-margin-left-6 anchor" style="padding-bottom: 10px;">
+            <a href="what-you-will-need.html" class="govuk-link govuk-link--no-visited-state">What you'll need</a>
+        </p>
+
+
+    </div>
+</div>
+
+{% endblock %}

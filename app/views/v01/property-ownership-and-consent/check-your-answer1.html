@@ -1,0 +1,99 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<style>
+    .govuk-heading-l {
+        margin-top: 16px;
+    }
+    .govuk-summary-list__value {
+        padding-left: 80px; /* Increased margin to move text further to the right */
+        width: 320px; /* Set a fixed width for the value column */
+    }
+    .govuk-summary-list__key {
+        width: 420px; /* Set a fixed width for the key column */
+    }
+</style>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+        <a href="javascript:history.back()" class="govuk-back-link">Back</a>
+
+
+        <h1 class="govuk-heading-l">Check your answers before sending your application</h1>
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Do you own the property
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    No
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="question1.html">Change<span class="govuk-visually-hidden"> name</span></a>
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Your name
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    John Doe
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="question5a.html">Change<span class="govuk-visually-hidden"> date of birth</span></a>
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Your relationship to the installation address (For example, if you are a tenant or used to live there)
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    Tenant
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="question5a.html">Change<span class="govuk-visually-hidden"> customer reference</span></a>
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Property owner name
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    John Doe
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="question5a.html">Change<span class="govuk-visually-hidden"> address</span></a>
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Property owner email address
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    <p class="govuk-body"></p>
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="question5a.html">Change<span class="govuk-visually-hidden"> contact details</span></a>
+                </dd>
+            </div>
+        </dl>
+
+        <button type="submit" class="govuk-button" data-module="govuk-button" onclick="location.href='confirmation-page1.html'">
+                   Save and continue
+               </button>
+
+        <br />
+        <br />
+        <p class="govuk-body">
+            <a href="/v01/complete-questionnaire/first-section-incomplete.html" class="govuk-link govuk-link--no-visited-state">Finish later</a>
+        </p>
+
+
+
+
+    </div>
+</div>
+
+{% endblock %}

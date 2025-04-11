@@ -1,0 +1,152 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<style>
+    .govuk-fieldset__heading {
+        margin-top: 16px;
+    }
+</style>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+
+        <a href="javascript:history.back()" class="govuk-back-link">Back</a>
+
+        <div id="error-container"></div>
+
+        <div class="govuk-form-group" id="error-indicator">
+            <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">
+                <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                    <h1 class="govuk-fieldset__heading">
+                        Help us get the right information
+                    </h1>
+                </legend>
+                <div id="passport-issued-hint" class="govuk-hint">
+                    You've told us you're not the property owner. Complete the details below if you can.
+                </div>
+                <br />
+
+                <!-- Error message container -->
+
+                <span id="name-error-message" class="govuk-error-message" style="display: none;">
+                    <span class="govuk-visually-hidden">Error:</span> Enter your name
+                </span>
+
+                <div class="govuk-form-group">
+                    <label class="govuk-label" for="event-name">
+                        Your name
+                    </label>
+                    <input class="govuk-input" id="event-name" name="eventName" type="text">
+                </div>
+                <span id="relationship-error-message" class="govuk-error-message" style="display: none;">
+                    <span class="govuk-visually-hidden">Error:</span> Enter your relationship to the installation address
+                </span>
+               
+                <div class="govuk-form-group">
+                    <label class="govuk-label" for="relationship">
+                        Your relationship to the installation address (For example, if you are a tenant or used to live there)
+                    </label>
+                    <input class="govuk-input" id="relationship" name="relationship" type="text">
+                </div>
+
+                <div class="govuk-form-group">
+                    <label class="govuk-label" for="event-name">
+                        Property owner name
+                    </label>
+                    <input class="govuk-input" id="event-name" name="eventName" type="text">
+                </div>
+                <div class="govuk-form-group">
+                    <label class="govuk-label" for="event-name">
+                        Property owner email address
+                    </label>
+                    <input class="govuk-input" id="event-name" name="eventName" type="text">
+                </div>
+                <br />
+
+            </fieldset>
+        </div>
+
+
+
+        <button type="submit" class="govuk-button" data-module="govuk-button" onclick="navigateBasedOnSelection()">
+            Save and continue
+        </button>
+
+        <p class="govuk-body">
+            <a href="/v01/complete-questionnaire/first-section-incomplete.html" class="govuk-link govuk-link--no-visited-state">Finish later</a>
+        </p>
+
+
+    </div>
+</div>
+
+<script>
+    function navigateBasedOnSelection() {
+        const errorContainer = document.getElementById('error-container');
+        const errorIndicator = document.getElementById('error-indicator');
+        const existingErrorSummary = document.getElementById('error-summary');
+        const nameErrorMessage = document.getElementById('name-error-message');
+        const relationshipErrorMessage = document.getElementById('relationship-error-message');
+
+        // Remove existing error summary if present
+        if (existingErrorSummary) {
+            existingErrorSummary.remove();
+        }
+
+        if (nameErrorMessage) {
+            nameErrorMessage.style.display = 'none';
+        }
+
+        if (relationshipErrorMessage) {
+            relationshipErrorMessage.style.display = 'none';
+        }
+
+        const nameInput = document.getElementById('event-name'); // Text input for name
+        const relationshipInput = document.getElementById('relationship'); // Text input for relationship
+
+        let hasError = false;
+
+        // Check if the name input is empty
+        if (!nameInput.value.trim()) {
+            nameErrorMessage.style.display = 'block';
+            hasError = true;
+        }
+
+        // Check if the relationship input is empty
+        if (!relationshipInput.value.trim()) {
+            relationshipErrorMessage.style.display = 'block';
+            hasError = true;
+        }
+
+        if (hasError) {
+            const errorSummary = document.createElement('div');
+            errorSummary.id = 'error-summary';
+            errorSummary.className = 'govuk-error-summary';
+            errorSummary.setAttribute('aria-labelledby', 'error-summary-title');
+            errorSummary.setAttribute('role', 'alert');
+            errorSummary.setAttribute('tabindex', '-1');
+            errorSummary.innerHTML = `
+              <h2 class="govuk-error-summary__title" id="error-summary-title">
+                  There is a problem
+              </h2>
+              <div class="govuk-error-summary__body">
+                  <ul class="govuk-list govuk-error-summary__list">
+                      ${!nameInput.value.trim() ? '<li><a href="#event-name">Enter your name</a></li>' : ''}
+                      ${!relationshipInput.value.trim() ? '<li><a href="#relationship">Enter your relationship to the installation address</a></li>' : ''}
+                  </ul>
+              </div>
+          `;
+            errorContainer.prepend(errorSummary);
+            errorSummary.focus();
+
+            errorIndicator.className = 'govuk-form-group govuk-form-group--error';
+        } else {
+            // Navigate to the next question if required fields are filled
+            window.location.href = "/v01/property-ownership-and-consent/check-your-answer1.html";
+        }
+    }
+</script>
+
+
+{% endblock %}

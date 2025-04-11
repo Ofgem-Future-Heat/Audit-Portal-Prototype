@@ -1,0 +1,193 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<style>
+    .govuk-fieldset__heading {
+        margin-top: 16px;
+    }
+
+    .govuk-form-group--error-with-line {
+        border-left: 4px solid #d4351c; /* Red vertical line */
+        padding-left: 16px; /* Add spacing between the line and content */
+    }
+</style>
+
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+
+        <a href="javascript:history.back()" class="govuk-back-link">Back</a>
+
+        <div id="error-container"></div>
+
+        <div class="govuk-form-group" id="error-indicator">
+            <fieldset class="govuk-fieldset">
+                <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                    <h1 class="govuk-fieldset__heading">
+                        Did someone else give consent?
+                    </h1>
+                </legend>
+                <!--<div id="hint" class="govuk-hint">
+                    If you've given consent, you should have a confirmation email from Ofgem.
+                </div>-->
+                <!-- Error message container -->
+
+                <span id="radio-error-message" class="govuk-error-message" style="display: none;">
+                    <span class="govuk-visually-hidden">Error:</span> Select if someone else has given consent
+                </span>
+
+                <div class="govuk-radios" data-module="govuk-radios">
+                    <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="whereDoYouLive" name="whereDoYouLive" type="radio" value="yes" data-aria-controls="conditional-contact">
+                        <label class="govuk-label govuk-radios__label" for="whereDoYouLive">
+                            Yes
+                        </label>
+                    </div>
+
+
+                    <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact">
+                        <div class="govuk-form-group">
+                            <label class="govuk-label" for="contact-by-email">
+                                Tell us in the box how you know the person who gave consent.
+                            </label>
+                            <span id="contact-by-email-error" class="govuk-error-message" style="display: none;">
+                                <span class="govuk-visually-hidden">Error:</span> Enter the email address of the person who gave consent
+                            </span>
+                            <input class="govuk-input govuk-!-width-one-third" id="contact-by-email" name="contactByEmail" type="email" spellcheck="false" aria-describedby="contact-by-email-error" autocomplete="email">
+                        </div>
+                    </div>
+
+
+
+                    <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="whereDoYouLive-2" name="whereDoYouLive" type="radio" value="no">
+                        <label class="govuk-label govuk-radios__label" for="whereDoYouLive-2">
+                            No
+                        </label>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+
+        <button type="submit" class="govuk-button" data-module="govuk-button" onclick="navigateBasedOnSelection()">
+            Save and continue
+        </button>
+
+        <p class="govuk-body">
+            <a href="/v01/complete-questionnaire/first-section-incomplete.html" class="govuk-link govuk-link--no-visited-state">Finish later</a>
+        </p>
+
+
+    </div>
+</div>
+
+<script>
+    function navigateBasedOnSelection() {
+        const errorContainer = document.getElementById('error-container');
+        const errorIndicator = document.getElementById('error-indicator');
+        const existingErrorSummary = document.getElementById('error-summary');
+        const radioErrorMessage = document.getElementById('radio-error-message');
+        const emailErrorMessage = document.getElementById('contact-by-email-error'); // Corrected reference
+        const emailInput = document.getElementById('contact-by-email');
+
+        // Remove existing error summary if present
+        if (existingErrorSummary) {
+            existingErrorSummary.remove();
+        }
+
+        if (radioErrorMessage) {
+            radioErrorMessage.style.display = 'none';
+        }
+
+        if (emailErrorMessage) {
+            emailErrorMessage.style.display = 'none';
+        }
+
+        // Get the selected radio button
+        const selectedOption = document.querySelector('input[name="whereDoYouLive"]:checked');
+        let hasError = false;
+
+        if (selectedOption) {
+            if (selectedOption.value === "yes") {
+                // Validate the email field
+                if (!emailInput.value.trim()) {
+                    hasError = true;
+
+                    // Display the email error message
+                    emailErrorMessage.style.display = 'block';
+
+                    // Create and display the error summary
+                    const errorSummary = document.createElement('div');
+                    errorSummary.id = 'error-summary';
+                    errorSummary.className = 'govuk-error-summary';
+                    errorSummary.setAttribute('aria-labelledby', 'error-summary-title');
+                    errorSummary.setAttribute('role', 'alert');
+                    errorSummary.setAttribute('tabindex', '-1');
+                    errorSummary.innerHTML = `
+                    <h2 class="govuk-error-summary__title" id="error-summary-title">
+                        There is a problem
+                    </h2>
+                    <div class="govuk-error-summary__body">
+                        <ul class="govuk-list govuk-error-summary__list">
+                            <li>
+                                <a href="#contact-by-email">Enter the email address of the person who gave consent</a>
+                            </li>
+                        </ul>
+                    </div>
+                `;
+                    errorContainer.prepend(errorSummary);
+                    errorSummary.focus();
+
+                    // Highlight the email input field with an error
+                    emailInput.classList.add('govuk-input--error');
+                } else {
+                    // Remove error styling if the email field is valid
+                    emailInput.classList.remove('govuk-input--error');
+                }
+            } else if (selectedOption.value === "no") {
+                // Navigate to the "No" path
+                window.location.href = "question5b.html";
+            }
+        } else {
+            hasError = true;
+
+            // Create and display the error summary for radio selection
+            const errorSummary = document.createElement('div');
+            errorSummary.id = 'error-summary';
+            errorSummary.className = 'govuk-error-summary';
+            errorSummary.setAttribute('aria-labelledby', 'error-summary-title');
+            errorSummary.setAttribute('role', 'alert');
+            errorSummary.setAttribute('tabindex', '-1');
+            errorSummary.innerHTML = `
+            <h2 class="govuk-error-summary__title" id="error-summary-title">
+                There is a problem
+            </h2>
+            <div class="govuk-error-summary__body">
+                <ul class="govuk-list govuk-error-summary__list">
+                    <li>
+                        <a href="#whereDoYouLive">Select if someone else has given consent</a>
+                    </li>
+                </ul>
+            </div>
+        `;
+            errorContainer.prepend(errorSummary);
+            errorSummary.focus();
+
+            if (radioErrorMessage) {
+                radioErrorMessage.style.display = 'block';
+                errorIndicator.className = 'govuk-form-group--error govuk-!-margin-bottom-5';
+            }
+        }
+
+        // If no errors, navigate to the next page
+        if (!hasError && selectedOption.value === "yes") {
+            window.location.href = "question3b.html";
+        }
+    }
+
+</script>
+
+
+
+{% endblock %}

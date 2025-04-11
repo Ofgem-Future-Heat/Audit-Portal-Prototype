@@ -1,0 +1,77 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<style>
+    .govuk-body {
+        margin-bottom: 16px;
+    }
+
+    .govuk-list li {
+        margin-bottom: 12px; /* Added spacing between links */
+    }
+    .anchor {
+        margin-top: -16px;
+    }
+</style>
+
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+        <p class="govuk-body">Contents</p>
+
+        <ul class="govuk-list" style="padding-bottom: 10px;">
+            <li>
+                &mdash;&nbsp;&nbsp;Overview
+            </li>
+            <li>
+                &mdash;&nbsp;&nbsp;<a class="govuk-link" href="what-you-will-need.html">What you'll need</a>
+            </li>
+            <li>
+                &mdash;&nbsp;&nbsp;<a class="govuk-link" href="complete-questionnaire.html">Complete questionnaire</a>
+            </li>
+        </ul>
+
+        <hr style="border: 1px solid #d6d8da;">
+
+        <h2 class="govuk-heading-m" style="padding-top: 20px;">Overview</h2>
+
+
+        <p class="govuk-body">
+            You recently installed a new renewable heating system and used the Boiler Upgrade Scheme (BUS). As part of our audit checks, we need you to complete this questionnaire.
+
+        <p class="govuk-body">
+            We'll ask you to confirm details and upload documents about:
+        </p>
+        <ul class="govuk-list govuk-list--bullet">
+            <li>your property</li>
+            <li>the installation</li>
+        </ul>
+
+        <p>
+            After you submit the questionnaire, we'll review it and let you know if we have any questions.
+
+        <p>
+            Sometimes we need to arrange a visit to look at the heating system.
+
+            <h3 class="govuk-heading-s">Impact on your BUS grant</h3>
+        <p class="govuk-body">
+            Your grant could be affected under the BUS regulations if either:
+        </p>
+        <ul class="govuk-list govuk-list--bullet">
+            <li>you do not complete the questionnaire</li>
+            <li>you give us false information</li>
+        </ul>
+
+        <h3 class="govuk-heading-s" style="padding-top: 20px; display: flex; align-items: center;">
+            <span style="font-weight: bolder; font-size: 1.2em; margin-right: 8px; color: #505A5F;">&#10132;</span>Next
+        </h3>
+
+        <p class="govuk-!-margin-left-6 anchor">
+              <a href="what-you-will-need.html" class="govuk-link govuk-link--no-visited-state">What you'll need</a>
+        </p>
+
+    </div>
+</div>
+
+{% endblock %}

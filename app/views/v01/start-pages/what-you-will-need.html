@@ -1,0 +1,123 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<style>
+    .govuk-body {
+        margin-bottom: 16px;
+    }
+
+    .govuk-list li {
+        margin-bottom: 12px; /* Added spacing between links */
+    }
+
+    .anchor {
+        margin-top: -16px;
+    }
+</style>
+
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+        <p class="govuk-body">Contents</p>
+
+        <ul class="govuk-list" style="padding-bottom: 10px;">
+            <li>
+                &mdash;&nbsp;&nbsp;<a class="govuk-link" href="overview.html">Overview</a>
+            </li>
+            <li>
+                &mdash;&nbsp;&nbsp;What you'll need
+            </li>
+            <li>
+                &mdash;&nbsp;&nbsp;<a class="govuk-link" href="complete-questionnaire.html">Complete questionnaire</a>
+            </li>
+        </ul>
+
+        <hr style="border: 1px solid #d6d8da;">
+
+        <h2 class="govuk-heading-m" style="padding-top: 20px;">What you'll need</h2>
+
+
+        <p class="govuk-body">
+            We'll ask you for details about your property and the installation. This includes information and documents about:
+        </p>
+        <ul class="govuk-list govuk-list--bullet">
+            <li>your ownership of the property</li>
+            <li>the type of property, for example if it's a new build</li>
+            <li>the type of renewable heating system, for example if it's a heat pump</li>
+            <li>the process of buying and installing the heating system</li>
+            <li>your property's Energy Performance Certificate (EPC)</li>
+        </ul>
+
+        <p>
+            You'll be asked to upload some documents that you provided with the BUS application. We use them as part of our separate audit checks.
+
+            <details class="govuk-details">
+                <summary class="govuk-details__summary">
+                    <span class="govuk-details__summary-text">
+                        Documents you'll need
+                    </span>
+                </summary>
+                <div class="govuk-details__text">
+                    <h3 class="govuk-heading-s">
+                        You'll be asked to upload:
+                    </h3>
+                    <ul class="govuk-list govuk-list--bullet">
+                        <li>valid ID</li>
+                        <li>proof that you own the property where the heating system is installed</li>
+                        <li>the MCS Installation Certificate</li>
+                        <li>the Energy Performance Certificate (EPC)</li>
+                        <li>evidence of installation costs</li>
+                        <li>evidence of payment for installation</li>
+                        <li>evidence of property's heat loss calculations performed by your installer</li>
+                        <li>evidence you have received or expect to receive the value of the BUS voucher</li>
+                    </ul>
+                    <h3 class="govuk-heading-s">
+                        For an existing build home, you'll also be asked to upload:
+                    </h3>
+                    <ul class="govuk-list govuk-list--bullet">
+                        <li>evidence that the property was occupied prior to installation</li>
+                        <li>evidence of the previous heating system</li>
+                    </ul>
+                    <h3 class="govuk-heading-s">
+                        For a new build home, you'll also be asked to upload:
+                    </h3>
+                    <ul class="govuk-list govuk-list--bullet">
+                        <li>evidence that planning permission has been granted</li>
+                        <li>documentation showing the previous owner of the land and the transfer of ownership to yourself</li>
+                        <li>documentation showing who designed and built the property</li>
+                        <li>evidence that you have funded the construction of the property</li>
+                    </ul>
+                </div>
+            </details>
+
+            <h3 class="govuk-heading-s">Your data</h3>
+        <p class="govuk-body">
+            We explain how we use your information in our <a class="govuk-link" href="https://www.ofgem.gov.uk/publications/boiler-upgrade-scheme-privacy-notice-property-owners">
+                Boiler Upgrade Scheme privacy notice for property owners
+            </a>.
+        </p>
+        <br />
+
+        <h3 class="govuk-heading-s" style="padding-top: 20px; display: flex; align-items: center;">
+            <span style=" font-size: 1.2em; margin-right: 8px; color: #505A5F;">&#x1F878;</span>Previous
+         </h3>
+
+        <p class="govuk-!-margin-left-6 anchor" style="padding-bottom: 10px;">
+            <a href="overview.html" class="govuk-link govuk-link--no-visited-state">Overview</a>
+        </p>
+
+        <hr style="border: 1px solid #d6d8da;">
+
+        <h3 class="govuk-heading-s" style="padding-top: 20px; display: flex; align-items: center;">
+            <span style="font-weight: bolder; font-size: 1.2em; margin-right: 8px; color: #505A5F;">&#10132;</span>Next
+        </h3>
+
+        <p class="govuk-!-margin-left-6 anchor">
+            <a href="complete-questionnaire.html" class="govuk-link govuk-link--no-visited-state">Complete questionnaire</a>
+        </p>
+
+    </div>
+</div>
+
+{% endblock %}

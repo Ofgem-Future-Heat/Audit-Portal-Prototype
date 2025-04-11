@@ -1,0 +1,30 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<style>
+    .govuk-fieldset__heading {
+        margin-top: 16px;
+    }
+</style>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+
+        <div class="govuk-panel govuk-panel--confirmation">
+            <h1 class="govuk-panel__title">
+                We've got your response
+            </h1>
+            <div class="govuk-panel__body">
+                You've told us you''re not the property owner.
+            </div>
+        </div>
+        <br />
+        <p class="govuk-body">If you made a mistake on the form and you are the property owner, email us at 
+        <a class="govuk-link" href="mailto:BUSDeskAudit@ofgem.gov.uk">BUSdeskaudit@ofgem.gov.uk</a>. We can re-send the form.</p>
+
+
+    </div>
+</div>
+
+{% endblock %}
