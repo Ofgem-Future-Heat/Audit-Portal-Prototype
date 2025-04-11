@@ -3,12 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\OlagokeD\\Downloads\\ofgem\\Audit-Portal-Prototype\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\OlagokeD\\Downloads\\ofgem\\Audit-Portal-Prototype\\app\\assets\\sass\\application.scss||{181FE41B-5A5D-479F-9F8F-BF665F4EBC2A}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:app\\assets\\sass\\application.scss||{181FE41B-5A5D-479F-9F8F-BF665F4EBC2A}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\OlagokeD\\Downloads\\ofgem\\Audit-Portal-Prototype\\app\\views\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:app\\views\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\OlagokeD\\Downloads\\ofgem\\Audit-Portal-Prototype\\app\\views\\v01\\property-ownership-and-consent\\question2b.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:app\\views\\v01\\property-ownership-and-consent\\question2b.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\OlagokeD\\Downloads\\ofgem\\Audit-Portal-Prototype\\app\\views\\v01\\start-pages\\complete-questionnaire.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:app\\views\\v01\\start-pages\\complete-questionnaire.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\OlagokeD\\Downloads\\ofgem\\Audit-Portal-Prototype\\app\\views\\v01\\start-pages\\overview.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:app\\views\\v01\\start-pages\\overview.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,41 +22,54 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "application.scss",
-              "DocumentMoniker": "C:\\Users\\OlagokeD\\Downloads\\ofgem\\Audit-Portal-Prototype\\app\\assets\\sass\\application.scss",
-              "RelativeDocumentMoniker": "app\\assets\\sass\\application.scss",
-              "ToolTip": "C:\\Users\\OlagokeD\\Downloads\\ofgem\\Audit-Portal-Prototype\\app\\assets\\sass\\application.scss",
-              "RelativeToolTip": "app\\assets\\sass\\application.scss",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAADAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002663|",
-              "WhenOpened": "2025-04-11T18:27:41.739Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "question2b.html",
-              "DocumentMoniker": "C:\\Users\\OlagokeD\\Downloads\\ofgem\\Audit-Portal-Prototype\\app\\views\\v01\\property-ownership-and-consent\\question2b.html",
-              "RelativeDocumentMoniker": "app\\views\\v01\\property-ownership-and-consent\\question2b.html",
-              "ToolTip": "C:\\Users\\OlagokeD\\Downloads\\ofgem\\Audit-Portal-Prototype\\app\\views\\v01\\property-ownership-and-consent\\question2b.html",
-              "RelativeToolTip": "app\\views\\v01\\property-ownership-and-consent\\question2b.html",
-              "ViewState": "AgIAABgAAAAAAAAAAAAAADEAAAA1AAAAAAAAAA==",
+              "Title": "complete-questionnaire.html",
+              "DocumentMoniker": "C:\\Users\\OlagokeD\\Downloads\\ofgem\\Audit-Portal-Prototype\\app\\views\\v01\\start-pages\\complete-questionnaire.html",
+              "RelativeDocumentMoniker": "app\\views\\v01\\start-pages\\complete-questionnaire.html",
+              "ToolTip": "C:\\Users\\OlagokeD\\Downloads\\ofgem\\Audit-Portal-Prototype\\app\\views\\v01\\start-pages\\complete-questionnaire.html",
+              "RelativeToolTip": "app\\views\\v01\\start-pages\\complete-questionnaire.html",
+              "ViewState": "AgIAADMAAAAAAAAAAAAAAEMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2025-04-11T14:04:55.09Z",
+              "WhenOpened": "2025-04-11T18:54:15.897Z",
               "EditorCaption": ""
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "overview.html",
+              "DocumentMoniker": "C:\\Users\\OlagokeD\\Downloads\\ofgem\\Audit-Portal-Prototype\\app\\views\\v01\\start-pages\\overview.html",
+              "RelativeDocumentMoniker": "app\\views\\v01\\start-pages\\overview.html",
+              "ToolTip": "C:\\Users\\OlagokeD\\Downloads\\ofgem\\Audit-Portal-Prototype\\app\\views\\v01\\start-pages\\overview.html",
+              "RelativeToolTip": "app\\views\\v01\\start-pages\\overview.html",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2025-04-11T18:52:47.258Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "index.html",
+              "DocumentMoniker": "C:\\Users\\OlagokeD\\Downloads\\ofgem\\Audit-Portal-Prototype\\app\\views\\index.html",
+              "RelativeDocumentMoniker": "app\\views\\index.html",
+              "ToolTip": "C:\\Users\\OlagokeD\\Downloads\\ofgem\\Audit-Portal-Prototype\\app\\views\\index.html",
+              "RelativeToolTip": "app\\views\\index.html",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2025-04-11T18:51:56.171Z",
+              "EditorCaption": ""
             }
           ]
         }
