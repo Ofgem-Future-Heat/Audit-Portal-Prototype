@@ -2,12 +2,11 @@
   "ExpandedNodes": [
     "",
     "\\app",
-    "\\app\\assets\\sass",
     "\\app\\views",
     "\\app\\views\\layouts",
     "\\app\\views\\v01",
-    "\\app\\views\\v01\\start-pages"
+    "\\app\\views\\v01\\property-ownership-and-consent"
   ],
-  "SelectedNode": "\\app\\views\\v01\\start-pages\\complete-questionnaire.html",
+  "SelectedNode": "\\app\\views\\v01\\property-ownership-and-consent\\confirmation-page1.html",
   "PreviewInSolutionExplorer": false
 }

@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\OlagokeD\\Downloads\\ofgem\\Audit-Portal-Prototype\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\OlagokeD\\Downloads\\ofgem\\Audit-Portal-Prototype\\app\\views\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:app\\views\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\OlagokeD\\Downloads\\ofgem\\Audit-Portal-Prototype\\app\\views\\v01\\property-ownership-and-consent\\confirmation-page1.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:app\\views\\v01\\property-ownership-and-consent\\confirmation-page1.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\OlagokeD\\Downloads\\ofgem\\Audit-Portal-Prototype\\app\\views\\v01\\start-pages\\complete-questionnaire.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:app\\views\\v01\\start-pages\\complete-questionnaire.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\OlagokeD\\Downloads\\ofgem\\Audit-Portal-Prototype\\app\\views\\v01\\property-ownership-and-consent\\question5b.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:app\\views\\v01\\property-ownership-and-consent\\question5b.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\OlagokeD\\Downloads\\ofgem\\Audit-Portal-Prototype\\app\\views\\v01\\start-pages\\overview.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:app\\views\\v01\\start-pages\\overview.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\OlagokeD\\Downloads\\ofgem\\Audit-Portal-Prototype\\app\\views\\v01\\property-ownership-and-consent\\question5a.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:app\\views\\v01\\property-ownership-and-consent\\question5a.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -34,41 +34,41 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "complete-questionnaire.html",
-              "DocumentMoniker": "C:\\Users\\OlagokeD\\Downloads\\ofgem\\Audit-Portal-Prototype\\app\\views\\v01\\start-pages\\complete-questionnaire.html",
-              "RelativeDocumentMoniker": "app\\views\\v01\\start-pages\\complete-questionnaire.html",
-              "ToolTip": "C:\\Users\\OlagokeD\\Downloads\\ofgem\\Audit-Portal-Prototype\\app\\views\\v01\\start-pages\\complete-questionnaire.html",
-              "RelativeToolTip": "app\\views\\v01\\start-pages\\complete-questionnaire.html",
-              "ViewState": "AgIAADMAAAAAAAAAAAAAAEMAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "confirmation-page1.html",
+              "DocumentMoniker": "C:\\Users\\OlagokeD\\Downloads\\ofgem\\Audit-Portal-Prototype\\app\\views\\v01\\property-ownership-and-consent\\confirmation-page1.html",
+              "RelativeDocumentMoniker": "app\\views\\v01\\property-ownership-and-consent\\confirmation-page1.html",
+              "ToolTip": "C:\\Users\\OlagokeD\\Downloads\\ofgem\\Audit-Portal-Prototype\\app\\views\\v01\\property-ownership-and-consent\\confirmation-page1.html",
+              "RelativeToolTip": "app\\views\\v01\\property-ownership-and-consent\\confirmation-page1.html",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2025-04-11T18:54:15.897Z",
+              "WhenOpened": "2025-04-15T14:30:11.728Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "question5b.html",
+              "DocumentMoniker": "C:\\Users\\OlagokeD\\Downloads\\ofgem\\Audit-Portal-Prototype\\app\\views\\v01\\property-ownership-and-consent\\question5b.html",
+              "RelativeDocumentMoniker": "app\\views\\v01\\property-ownership-and-consent\\question5b.html",
+              "ToolTip": "C:\\Users\\OlagokeD\\Downloads\\ofgem\\Audit-Portal-Prototype\\app\\views\\v01\\property-ownership-and-consent\\question5b.html",
+              "RelativeToolTip": "app\\views\\v01\\property-ownership-and-consent\\question5b.html",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAhwCUAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2025-04-15T14:27:29.813Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "overview.html",
-              "DocumentMoniker": "C:\\Users\\OlagokeD\\Downloads\\ofgem\\Audit-Portal-Prototype\\app\\views\\v01\\start-pages\\overview.html",
-              "RelativeDocumentMoniker": "app\\views\\v01\\start-pages\\overview.html",
-              "ToolTip": "C:\\Users\\OlagokeD\\Downloads\\ofgem\\Audit-Portal-Prototype\\app\\views\\v01\\start-pages\\overview.html",
-              "RelativeToolTip": "app\\views\\v01\\start-pages\\overview.html",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "question5a.html",
+              "DocumentMoniker": "C:\\Users\\OlagokeD\\Downloads\\ofgem\\Audit-Portal-Prototype\\app\\views\\v01\\property-ownership-and-consent\\question5a.html",
+              "RelativeDocumentMoniker": "app\\views\\v01\\property-ownership-and-consent\\question5a.html",
+              "ToolTip": "C:\\Users\\OlagokeD\\Downloads\\ofgem\\Audit-Portal-Prototype\\app\\views\\v01\\property-ownership-and-consent\\question5a.html",
+              "RelativeToolTip": "app\\views\\v01\\property-ownership-and-consent\\question5a.html",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAACUAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2025-04-11T18:52:47.258Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "index.html",
-              "DocumentMoniker": "C:\\Users\\OlagokeD\\Downloads\\ofgem\\Audit-Portal-Prototype\\app\\views\\index.html",
-              "RelativeDocumentMoniker": "app\\views\\index.html",
-              "ToolTip": "C:\\Users\\OlagokeD\\Downloads\\ofgem\\Audit-Portal-Prototype\\app\\views\\index.html",
-              "RelativeToolTip": "app\\views\\index.html",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2025-04-11T18:51:56.171Z",
+              "WhenOpened": "2025-04-15T14:26:42.826Z",
               "EditorCaption": ""
             }
           ]
