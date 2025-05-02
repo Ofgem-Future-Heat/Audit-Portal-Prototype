@@ -1,0 +1,124 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<style>
+    .govuk-label-wrapper {
+        margin-top: 16px;
+    }
+
+    .govuk-form-group--error {
+        border-left: 4px solid #d4351c; /* Red vertical line for error */
+        padding-left: 16px;
+    }
+
+    .govuk-textarea--error {
+        border: 2px solid #d4351c; /* Red border for error */
+        box-shadow: none; /* Remove any default shadow */
+    }
+</style>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+
+        <a href="javascript:history.back()" class="govuk-back-link">Back</a>
+
+        <div id="error-container"></div>
+
+        <div class="govuk-form-group" id="error-indicator">
+            <h1 class="govuk-label-wrapper">
+                <label class="govuk-label govuk-label--l" for="more-detail">
+                    Provide further explanation below
+                </label>
+            </h1>
+            <div id="more-detail-hint" class="govuk-hint">
+                For example, please state who was responsible for the design of your property
+            </div>
+
+            <!-- Error message container -->
+            <span id="textarea-error-message" class="govuk-error-message" style="display: none;">
+                <span class="govuk-visually-hidden">Error:</span> You must provide more detail.
+            </span>
+
+            <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5" aria-describedby="more-detail-hint"></textarea>
+
+        </div>
+
+        <button type="submit" class="govuk-button" data-module="govuk-button" onclick="navigateBasedOnSelection()">
+            Save and continue
+        </button>
+
+        <p class="govuk-body">
+            <a href="/v01/complete-questionnaire/second-section-incomplete.html" class="govuk-link govuk-link--no-visited-state">Finish later</a>
+        </p>
+
+    </div>
+</div>
+
+
+<script>
+    function navigateBasedOnSelection() {
+        const errorContainer = document.getElementById('error-container');
+        const errorIndicator = document.getElementById('error-indicator');
+        const existingErrorSummary = document.getElementById('error-summary');
+        const errorMessage = document.getElementById('textarea-error-message');
+        const textArea = document.getElementById('more-detail');
+
+        // Remove existing error summary if present
+        if (existingErrorSummary) {
+            existingErrorSummary.remove();
+        }
+
+        if (errorMessage) {
+            errorMessage.style.display = 'none';
+        }
+
+        // Remove the error class from the textarea
+        textArea.classList.remove('govuk-textarea--error');
+
+        // Check if the text area is empty
+        if (!textArea.value.trim()) {
+            const errorSummary = document.createElement('div');
+            errorSummary.id = 'error-summary';
+            errorSummary.className = 'govuk-error-summary';
+            errorSummary.setAttribute('aria-labelledby', 'error-summary-title');
+            errorSummary.setAttribute('role', 'alert');
+            errorSummary.setAttribute('tabindex', '-1');
+            errorSummary.innerHTML = `
+                <h2 class="govuk-error-summary__title" id="error-summary-title">
+                    There is a problem
+                </h2>
+                <div class="govuk-error-summary__body">
+                    <ul class="govuk-list govuk-error-summary__list">
+                        <li>
+                            <a href="#more-detail">You must provide more detail.</a>
+                        </li>
+                    </ul>
+                </div>
+            `;
+
+            errorContainer.prepend(errorSummary);
+            errorSummary.focus();
+
+            if (errorMessage) {
+                errorMessage.style.display = 'block';
+                errorIndicator.className = 'govuk-form-group govuk-form-group--error';
+            }
+
+            // Add the error class to the textarea
+            textArea.classList.add('govuk-textarea--error');
+        } else {
+            // Navigate to the next question if the text area is not empty
+            window.location.href = "question13a-radio.html";
+        }
+    }
+</script>
+
+
+
+
+
+{% endblock %}
+
+
+
