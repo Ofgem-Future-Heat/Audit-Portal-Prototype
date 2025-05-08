@@ -5,8 +5,8 @@
     "\\app\\views",
     "\\app\\views\\layouts",
     "\\app\\views\\v01",
-    "\\app\\views\\v01\\installed-renewable-heat-technology"
+    "\\app\\views\\v01\\complete-questionnaire"
   ],
-  "SelectedNode": "\\app\\views\\v01\\complete-questionnaire",
+  "SelectedNode": "\\app\\views\\v01\\complete-questionnaire\\second-section-incomplete.html",
   "PreviewInSolutionExplorer": false
 }
