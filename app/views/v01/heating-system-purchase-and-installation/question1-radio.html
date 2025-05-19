@@ -1,0 +1,115 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<style>
+    .govuk-fieldset__heading {
+        margin-top: 16px;
+    }
+</style>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+
+        <a href="javascript:history.back()" class="govuk-back-link">Back</a>
+
+        <div id="error-container"></div>
+
+        <div class="govuk-form-group" id="error-indicator">
+            <fieldset class="govuk-fieldset">
+                <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                    <h1 class="govuk-fieldset__heading">
+                        Did you get a BUS grant voucher payment towards the cost of the installation?
+                    </h1>
+                </legend>
+                <div id="hint" class="govuk-hint">
+                    Select Yes if you expect to get a Bus grant voucher but have not received it yet.
+                </div>
+
+                <!-- Error message container -->
+
+                <span id="radio-error-message" class="govuk-error-message" style="display: none;">
+                    <span class="govuk-visually-hidden">Error:</span> Select if you have or expect to receive a BUS voucher
+                </span>
+
+                <div class="govuk-radios" data-module="govuk-radios">
+                    <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="whereDoYouLive" name="whereDoYouLive" type="radio" value="yes">
+                        <label class="govuk-label govuk-radios__label" for="whereDoYouLive">
+                            Yes
+                        </label>
+                    </div>
+                    <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="whereDoYouLive-2" name="whereDoYouLive" type="radio" value="no">
+                        <label class="govuk-label govuk-radios__label" for="whereDoYouLive-2">
+                            No
+                        </label>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+
+        <button type="button" class="govuk-button" data-module="govuk-button" onclick="navigateBasedOnSelection()">
+            Save and continue
+        </button>
+
+        <p class="govuk-body">
+            <a href="/v01/complete-questionnaire/fourth-section-incomplete.html" class="govuk-link govuk-link--no-visited-state">Finish later</a>
+        </p>
+
+    </div>
+</div>
+
+<script>  
+  function navigateBasedOnSelection() {  
+      const errorContainer = document.getElementById('error-container'); 
+      const errorIndicator = document.getElementById('error-indicator');
+      const existingErrorSummary = document.getElementById('error-summary');  
+      const errorMessage = document.getElementById('radio-error-message');  
+
+      if (existingErrorSummary) {  
+          existingErrorSummary.remove(); 
+      }  
+
+      if (errorMessage) {  
+            errorMessage.style.display = 'none';  
+          }
+
+      const selectedOption = document.querySelector('input[name="whereDoYouLive"]:checked');  
+      if (selectedOption) {  
+          if (selectedOption.value === "yes") {  
+              window.location.href = "question2-money.html";  
+          } else if (selectedOption.value === "no") {  
+              window.location.href = "question5a.html";  
+          }  
+      } else {  
+          const errorSummary = document.createElement('div');  
+          errorSummary.id = 'error-summary';  
+          errorSummary.className = 'govuk-error-summary';  
+          errorSummary.setAttribute('aria-labelledby', 'error-summary-title');  
+          errorSummary.setAttribute('role', 'alert');  
+          errorSummary.setAttribute('tabindex', '-1');  
+          errorSummary.innerHTML = `  
+              <h2 class="govuk-error-summary__title" id="error-summary-title">  
+                  There is a problem  
+              </h2>  
+              <div class="govuk-error-summary__body">  
+                  <ul class="govuk-list govuk-error-summary__list">  
+                      <li>  
+                          <a href="#whereDoYouLive">Select if you have or expect to receive a BUS voucher</a>  
+                      </li>  
+                  </ul>  
+              </div>  
+          `;   
+          errorContainer.prepend(errorSummary);  
+          errorSummary.focus();  
+
+          if (errorMessage) {  
+              errorMessage.style.display = 'block';  
+              errorIndicator.className = 'govuk-form-group--error govuk-!-margin-bottom-5'; 
+          }  
+      }  
+  }  
+</script>
+
+{% endblock %}

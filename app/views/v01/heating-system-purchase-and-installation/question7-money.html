@@ -1,0 +1,227 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<style>
+    .govuk-fieldset__heading {
+        margin-top: 16px;
+    }
+
+    .scheme {
+        margin-bottom: 40px;
+    }
+</style>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+
+        <a href="javascript:history.back()" class="govuk-back-link">Back</a>
+
+        <div id="error-container"></div>
+
+        <div class="govuk-form-group" id="error-indicator">
+            <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">
+                <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                    <h1 class="govuk-fieldset__heading">
+                        Tell us about the funding scheme and the amount
+                    </h1>
+                </legend>
+                <div id="schemes-container">
+                    </br>
+                    <div class="scheme" id="scheme-1">
+                        <h3 class="govuk-heading-m">Scheme 1</h3>
+
+                        <!-- Error message container -->
+
+                        <span id="text-error-message" class="govuk-error-message" style="display: none;">
+                            <span class="govuk-visually-hidden">Error:</span> Enter a scheme name.
+                        </span>
+
+                        <div class="govuk-form-group">
+                            <label class="govuk-heading-m" for="event-name">
+                                Funding scheme name
+                            </label>
+                            <input class="govuk-input" id="event-name" name="eventName" type="text">
+                        </div>
+
+                        <h3 class="govuk-heading-m">Amount received</h3>
+                        <!-- Error message container -->
+
+                        <span id="radio-error-message" class="govuk-error-message" style="display: none;">
+                            <span class="govuk-visually-hidden">Error:</span> Enter a value.
+                        </span>
+
+                        <div class="govuk-form-group">
+                            <div class="govuk-input__wrapper">
+                                <div class="govuk-input__prefix" aria-hidden="true">£</div>
+                                <input class="govuk-input govuk-input--width-10" id="cost-per-item" name="costPerItem"
+                                    type="number">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </br>
+                <div>
+                    <button onclick="addScheme()" type="submit" class="govuk-button govuk-button--secondary"
+                        data-module="govuk-button">
+                        Add another
+                    </button>
+                </div>
+
+                <button type="submit" class="govuk-button" data-module="govuk-button"
+                    onclick="navigateBasedOnSelection()">
+                    Save and continue
+                </button>
+
+                <p class="govuk-body">
+                    <a href="/v01/complete-questionnaire/fourth-section-incomplete.html"
+                        class="govuk-link govuk-link--no-visited-state">Finish later</a>
+                </p>
+        </div>
+
+    </div>
+
+    <script>
+        let schemeCount = 1;
+        const maxSchemes = 5;
+
+        function addScheme() {
+            if (schemeCount >= maxSchemes) {
+                alert("Maximum number of schemes has been added!");
+                return;
+            }
+
+            schemeCount++;
+
+            const container = document.getElementById('schemes-container');
+            const original = document.getElementById('scheme-1');
+
+            const clone = original.cloneNode(true);
+            clone.id = `scheme-${schemeCount}`;
+
+            // Clear inputs
+            const inputs = clone.querySelectorAll('input');
+            inputs.forEach(input => input.value = '');
+
+            // Remove any existing remove button
+            const existingRemove = clone.querySelector('.remove-button');
+            if (existingRemove) existingRemove.remove();
+
+            // Update heading
+            const heading = clone.querySelector('h3.govuk-heading-m');
+            if (heading) {
+                heading.innerHTML = ''; // Clear existing content
+
+                const headingWrapper = document.createElement('div');
+                headingWrapper.style.display = 'flex';
+                headingWrapper.style.justifyContent = 'space-between';
+                headingWrapper.style.alignItems = 'center';
+
+                const title = document.createElement('span');
+                title.className = 'scheme-title';
+                title.textContent = `Scheme ${schemeCount}`;
+
+                const removeBtn = document.createElement('button');
+                removeBtn.type = 'button';
+                removeBtn.className = 'govuk-button govuk-button--secondary remove-button';
+                removeBtn.style.margin = '0';
+                removeBtn.style.padding = '5px 10px';
+                removeBtn.textContent = 'Remove';
+                removeBtn.onclick = () => {
+                    clone.remove();
+                    schemeCount--;
+                    updateSchemeHeadings();
+                };
+
+                headingWrapper.appendChild(title);
+                headingWrapper.appendChild(removeBtn);
+                heading.appendChild(headingWrapper);
+            }
+
+            // Add spacing
+            clone.style.marginTop = '20px';
+
+            container.appendChild(clone);
+        }
+
+
+
+        function removeScheme(button) {
+            const scheme = button.closest('.scheme');
+            scheme.remove();
+            schemeCount--;
+            updateSchemeHeadings();
+        }
+
+
+        function updateSchemeHeadings() {
+            const schemes = document.querySelectorAll('.scheme');
+            schemes.forEach((scheme, index) => {
+                scheme.id = `scheme-${index + 1}`;
+                const heading = scheme.querySelector('h3.govuk-heading-m .scheme-title');
+                if (heading) {
+                    heading.textContent = `Scheme ${index + 1}`;
+                }
+            });
+        }
+
+
+        function navigateBasedOnSelection() {
+            const errorContainer = document.getElementById('error-container');
+            const errorIndicator = document.getElementById('error-indicator');
+            const existingErrorSummary = document.getElementById('error-summary');
+
+            if (existingErrorSummary) {
+                existingErrorSummary.remove();
+            }
+
+            let hasError = false;
+
+            // Hide all error messages first
+            document.querySelectorAll('.govuk-error-message').forEach(el => el.style.display = 'none');
+            errorIndicator.className = 'govuk-form-group';
+
+            const schemes = document.querySelectorAll('.scheme');
+            schemes.forEach(scheme => {
+                const nameInput = scheme.querySelector('input[name="eventName"]');
+                const amountInput = scheme.querySelector('input[name="costPerItem"]');
+                const textError = scheme.querySelector('#text-error-message');
+                const radioError = scheme.querySelector('#radio-error-message');
+
+                if (!nameInput.value || !amountInput.value) {
+                    hasError = true;
+                    if (textError) textError.style.display = 'block';
+                    if (radioError) radioError.style.display = 'block';
+                    errorIndicator.className = 'govuk-form-group govuk-form-group--error';
+                }
+            });
+
+            if (hasError) {
+                const errorSummary = document.createElement('div');
+                errorSummary.id = 'error-summary';
+                errorSummary.className = 'govuk-error-summary';
+                errorSummary.setAttribute('aria-labelledby', 'error-summary-title');
+                errorSummary.setAttribute('role', 'alert');
+                errorSummary.setAttribute('tabindex', '-1');
+                errorSummary.innerHTML = `
+                    <h2 class="govuk-error-summary__title" id="error-summary-title">
+                        There is a problem
+                    </h2>
+                    <div class="govuk-error-summary__body">
+                        <ul class="govuk-list govuk-error-summary__list">
+                            <li>
+                                <a href="#schemes-container">Enter scheme name and amount received for all schemes</a>
+                            </li>
+                        </ul>
+                    </div>
+                `;
+                errorContainer.prepend(errorSummary);
+                errorSummary.focus();
+            } else {
+                window.location.href = "question8-file-upload.html";
+            }
+        }
+    </script>
+
+
+    {% endblock %}
