@@ -1,0 +1,249 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<style>
+    .govuk-fieldset__heading {
+        margin-top: 16px;
+    }
+
+    .remove-anchor {
+        color: #005ea5;
+        text-decoration: underline;
+        cursor: pointer;
+    }
+
+    .decorate-file-list {
+        border-bottom: 1px solid #b1b4b6;
+        /* Updated to GOV.UK gray */
+        padding-bottom: 15px;
+    }
+
+    .decorate-file-upload {
+        margin-top: 20px;
+        border: 4px dashed #0b0c0c;
+        /* Updated to GOV.UK black */
+        padding: 30px !important;
+    }
+
+    .decorate-file-input-label {
+        display: flex;
+        align-items: center;
+        width: 100%;
+    }
+</style>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+
+        <a href="javascript:history.back()" class="govuk-back-link">Back</a>
+
+        <div id="error-container"></div>
+
+
+        <div class="govuk-form-group" id="error-indicator">
+            <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">
+                <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                    <h1 class="govuk-fieldset__heading">
+                        Upload the property's Energy Performance Certificate (EPC)
+                    </h1>
+                </legend>
+
+                <div id="passport-issued-hint" class="govuk-hint">
+                    <div class="govuk-inset-text" class="govuk-hint" style="margin-top: 20px;">
+                        You can use the GOV UK website if you need to:
+                        <ul style="margin-top: 8px;">
+                            <li style="margin-bottom: 4px;">
+                                <a class="govuk-link govuk-hint" href="https://www.gov.uk/find-energy-certificate"
+                                    target="_blank" style="text-decoration: underline;">
+                                    Find a copy of an existing EPC
+                                </a>
+                            </li>
+                            <li style="margin-bottom: 4px;">
+                                <a class="govuk-link govuk-hint" href="https://www.gov.uk/get-new-energy-certificate"
+                                    target="_blank" style="text-decoration: underline;">
+                                    Get a new EPC
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <p class="govuk-hint" style="margin-bottom: 0px;">Files must:</p>
+                    <ul style="margin-top: 8px;">
+                        <li class="govuk-hint" style="margin-bottom: 4px;">be in PDF, JPG or PNG format</li>
+                        <li class="govuk-hint" style="margin-bottom: 4px;">not exceed 20MB in size</li>
+                    </ul>
+                </div>
+
+                <!-- Error message container -->
+
+                <span id="radio-error-message" class="govuk-error-message" style="display: none;">
+                    <span class="govuk-visually-hidden">Error:</span> You must upload at least one file
+                </span>
+
+            </fieldset>
+        </div>
+
+        <form action="/components/multi-file-upload/examples/default" method="post" enctype="multipart/form-data">
+
+            <div class="moj-multi-file-upload" data-module="moj-multi-file-upload">
+                <div class="moj-multi-file__uploaded-files ">
+                    <h2 class="govuk-heading-m">Files added</h2>
+                    <div id="file_added" class="govuk-body"></div>
+                    <div class="govuk-summary-list moj-multi-file-upload__list">
+
+                    </div>
+                </div>
+
+                <div class="moj-multi-file-upload__upload ">
+                    <div class="govuk-form-group">
+                        <label class="govuk-label govuk-label--m" for="documents">
+                            Upload a file
+                        </label>
+                        <div class="decorate-file-upload">
+                            <input class="govuk-file-upload moj-multi-file-upload__input" id="documents"
+                                name="documents" type="file" multiple="" hidden>
+                            <label for="documents" class="decorate-file-input-label govuk-body">
+                                <span class="govuk-!-margin-right-4">Drag and drop files here or</span>
+                                <span class="govuk-button govuk-button--secondary govuk-!-margin-top-6">Choose
+                                    files</span>
+                            </label>
+                        </div>
+
+                    </div>
+
+
+                </div>
+            </div>
+        </form>
+
+
+
+
+        <button type="submit" class="govuk-button" data-module="govuk-button" onclick="navigateBasedOnSelection()">
+            Save and continue
+        </button>
+
+        <p class="govuk-body">
+            <a href="/v01/complete-questionnaire/fifth-section-incomplete.html"
+                class="govuk-link govuk-link--no-visited-state">Finish later</a>
+        </p>
+
+
+    </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const fileInput = document.getElementById("documents");
+        const fileAddedDiv = document.getElementById("file_added");
+        const addedFiles = new Map(); // To track added files by name
+
+        if (!fileInput || !fileAddedDiv) {
+            console.error("File input or file added div not found in the DOM.");
+            return;
+        }
+
+        fileInput.addEventListener("change", function () {
+            Array.from(fileInput.files).forEach(file => {
+                if (addedFiles.has(file.name)) {
+                    alert(`File "${file.name}" is already added.`);
+                    return;
+                }
+
+                // Add file to the map
+                addedFiles.set(file.name, file);
+
+                // Create a list item for the file
+                const fileItem = document.createElement("div");
+                fileItem.className = "file-item decorate-file-list";
+                fileItem.style.display = "flex";
+                fileItem.style.justifyContent = "space-between";
+                fileItem.style.alignItems = "center";
+                fileItem.style.marginBottom = "5px";
+
+                const fileNameElement = document.createElement("span");
+                fileNameElement.textContent = file.name;
+
+                const removeButton = document.createElement("span");
+                removeButton.textContent = "Remove file";
+                removeButton.className = "remove-anchor govuk-link";
+                removeButton.style.marginLeft = "8px";
+                removeButton.style.padding = "4px 8px";
+                removeButton.addEventListener("click", function () {
+                    // Remove file from the map
+                    addedFiles.delete(file.name);
+
+                    // Remove the file item from the DOM
+                    fileAddedDiv.removeChild(fileItem);
+                });
+
+                fileItem.appendChild(fileNameElement);
+                fileItem.appendChild(removeButton);
+                fileAddedDiv.appendChild(fileItem);
+            });
+
+            // Clear the file input to allow re-uploading the same file
+            fileInput.value = "";
+        });
+    });
+
+</script>
+
+
+<script>
+
+    function navigateBasedOnSelection() {
+        const errorContainer = document.getElementById('error-container');
+        const errorIndicator = document.getElementById('error-indicator');
+        const existingErrorSummary = document.getElementById('error-summary');
+        const errorMessage = document.getElementById('radio-error-message');
+        const fileAddedDiv = document.getElementById('file_added');
+
+        // Remove existing error summary if present
+        if (existingErrorSummary) {
+            existingErrorSummary.remove();
+        }
+
+        if (errorMessage) {
+            errorMessage.style.display = 'none';
+        }
+
+        // Check if any files have been added
+        if (!fileAddedDiv || fileAddedDiv.children.length === 0) {
+            const errorSummary = document.createElement('div');
+            errorSummary.id = 'error-summary';
+            errorSummary.className = 'govuk-error-summary';
+            errorSummary.setAttribute('aria-labelledby', 'error-summary-title');
+            errorSummary.setAttribute('role', 'alert');
+            errorSummary.setAttribute('tabindex', '-1');
+            errorSummary.innerHTML = `
+               <h2 class="govuk-error-summary__title" id="error-summary-title">
+                   There is a problem
+               </h2>
+               <div class="govuk-error-summary__body">
+                   <ul class="govuk-list govuk-error-summary__list">
+                       <li>
+                           <a href="#documents">You must upload at least one file</a>
+                       </li>
+                   </ul>
+               </div>
+           `;
+
+            errorContainer.prepend(errorSummary);
+            errorSummary.focus();
+
+            if (errorMessage) {
+                errorMessage.style.display = 'block';
+                errorIndicator.className = 'govuk-form-group govuk-form-group--error';
+            }
+        } else {
+            // Navigate to the next question if a file has been added
+            window.location.href = "question3-file-upload.html";
+        }
+    }
+</script>
+
+
+
+{% endblock %}
