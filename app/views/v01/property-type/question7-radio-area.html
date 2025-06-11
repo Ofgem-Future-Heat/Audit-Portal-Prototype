@@ -19,18 +19,21 @@
             <fieldset class="govuk-fieldset">
                 <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
                     <h1 class="govuk-fieldset__heading">
-                        Did anyone live in the property before the renewable heat technology was commissioned?
+                        Property ownership during construction
                     </h1>
                 </legend>
-                <!--<div id="hint" class="govuk-hint">
-                    A new build is a property that did not have a heating system
-                    and was not lived in before the new installation.
-                </div>-->
+                <div id="hint" class="govuk-hint">
+                    <p style="margin-top: 20px;">Did you own the property during the whole construction process?</p>
+
+                    This means from the start to the end of construction, including the laying of foundations.
+
+                    <p class="govuk-hint" style="margin-top: 20px;">For a conversion, this means from the start to the end of the conversion works.</p>
+                </div>
 
                 <!-- Error message container -->
 
                 <span id="radio-error-message" class="govuk-error-message" style="display: none;">
-                    <span class="govuk-visually-hidden">Error:</span> Select if you or someone else occupy the property before the commissioning of the renewable heat technology
+                    <span class="govuk-visually-hidden">Error:</span> Select if you owned the property during the whole construction process
                 </span>
 
                 <div class="govuk-radios" data-module="govuk-radios">
@@ -47,6 +50,14 @@
                         </label>
                     </div>
                 </div>
+
+                <div class="govuk-form-group" style="margin-top: 40px;">
+                    <label class="govuk-label" for="more-detail">
+                        Can you provide more detail?
+                    </label>
+                    <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5"></textarea>
+                </div>
+
             </fieldset>
         </div>
 
@@ -80,9 +91,9 @@
       const selectedOption = document.querySelector('input[name="whereDoYouLive"]:checked');
       if (selectedOption) {
           if (selectedOption.value === "yes") {
-              window.location.href = "question4a-file-upload.html";
+              window.location.href = "question8-radio-area.html";
           } else if (selectedOption.value === "no") {
-              window.location.href = "question4b-text-area.html";
+              window.location.href = "question8-radio-area.html";
           }
       } else {
           const errorSummary = document.createElement('div');
@@ -98,7 +109,7 @@
               <div class="govuk-error-summary__body">
                   <ul class="govuk-list govuk-error-summary__list">
                       <li>
-                          <a href="#whereDoYouLive">Select if you or someone else occupy the property before the commissioning of the renewable heat technology</a>
+                          <a href="#whereDoYouLive">Select if you owned the property during the whole construction process</a>
                       </li>
                   </ul>
               </div>

@@ -19,34 +19,59 @@
             <fieldset class="govuk-fieldset">
                 <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
                     <h1 class="govuk-fieldset__heading">
-                        Did the person(s) or company who sold or transferred the plot to you where your property 
-                        was constructed take part in the design of the property?
+                        Who was the previous owner of the plot?
                     </h1>
                 </legend>
-                <!--<div id="hint" class="govuk-hint">
-                    A new build is a property that did not have a heating system
-                    and was not lived in before the new installation.
-                </div>-->
+                <div id="hint" class="govuk-hint">
+                    Select Yes even if they were only involved in some of the design.
+                </div>
 
                 <!-- Error message container -->
 
                 <span id="radio-error-message" class="govuk-error-message" style="display: none;">
-                    <span class="govuk-visually-hidden">Error:</span> Select if the person(s) or company who sold or transferred the plot to you where your property was constructed took part in the design of the property
+                    <span class="govuk-visually-hidden">Error:</span> Select if the person(s) or company who sold or
+                    transferred the plot to you where your property was constructed took part in the design of the
+                    property
                 </span>
 
                 <div class="govuk-radios" data-module="govuk-radios">
                     <div class="govuk-radios__item">
-                        <input class="govuk-radios__input" id="whereDoYouLive" name="whereDoYouLive" type="radio" value="yes">
+                        <input class="govuk-radios__input" id="whereDoYouLive" name="whereDoYouLive" type="radio"
+                            value="yes">
                         <label class="govuk-label govuk-radios__label" for="whereDoYouLive">
-                            Yes
+                            An individual
                         </label>
                     </div>
+
+                    <div id="additional-info-yes" class="govuk-inset-text"
+                        style="display: none; border-left: 5px solid #b1b4b6; margin-top: 10px; padding-left: 15px; margin-left: 15px;">
+
+                        <h2 class="govuk-heading-s">Label</h2>
+                        <div class="govuk-form-group">
+                            <input class="govuk-input govuk-input--width-10" id="additionalDetailsYes"
+                                name="additionalDetailsYes" type="text">
+                        </div>
+                    </div>
+
                     <div class="govuk-radios__item">
-                        <input class="govuk-radios__input" id="whereDoYouLive-2" name="whereDoYouLive" type="radio" value="no">
+                        <input class="govuk-radios__input" id="whereDoYouLive-2" name="whereDoYouLive" type="radio"
+                            value="no">
                         <label class="govuk-label govuk-radios__label" for="whereDoYouLive-2">
-                            No
+                            A company
                         </label>
                     </div>
+
+                    <div id="additional-info-no" class="govuk-inset-text"
+                        style="display: none; border-left: 5px solid #b1b4b6; margin-top: 10px; padding-left: 15px; margin-left: 15px;">
+
+                        <h2 class="govuk-heading-s">Label</h2>
+                        <div class="govuk-form-group">
+                            <input class="govuk-input govuk-input--width-10" id="additionalDetailsNo"
+                                name="additionalDetailsNo" type="text">
+                        </div>
+                    </div>
+
+
                 </div>
             </fieldset>
         </div>
@@ -56,7 +81,8 @@
         </button>
 
         <p class="govuk-body">
-            <a href="/v01/complete-questionnaire/second-section-incomplete.html" class="govuk-link govuk-link--no-visited-state">Finish later</a>
+            <a href="/v01/complete-questionnaire/second-section-incomplete.html"
+                class="govuk-link govuk-link--no-visited-state">Finish later</a>
         </p>
 
     </div>
@@ -64,35 +90,35 @@
 
 <script>
 
-  function navigateBasedOnSelection() {
-      const errorContainer = document.getElementById('error-container');
-      const errorIndicator = document.getElementById('error-indicator');
-      const existingErrorSummary = document.getElementById('error-summary');
-      const errorMessage = document.getElementById('radio-error-message');
+    function navigateBasedOnSelection() {
+        const errorContainer = document.getElementById('error-container');
+        const errorIndicator = document.getElementById('error-indicator');
+        const existingErrorSummary = document.getElementById('error-summary');
+        const errorMessage = document.getElementById('radio-error-message');
 
-      if (existingErrorSummary) {
-          existingErrorSummary.remove();
-      }
+        if (existingErrorSummary) {
+            existingErrorSummary.remove();
+        }
 
-      if (errorMessage) {
+        if (errorMessage) {
             errorMessage.style.display = 'none';
-          }
+        }
 
-      const selectedOption = document.querySelector('input[name="whereDoYouLive"]:checked');
-      if (selectedOption) {
-          if (selectedOption.value === "yes") {
-              window.location.href = "question13a-radio.html";
-          } else if (selectedOption.value === "no") {
-              window.location.href = "question13b-text-area.html";
-          }
-      } else {
-          const errorSummary = document.createElement('div');
-          errorSummary.id = 'error-summary';
-          errorSummary.className = 'govuk-error-summary';
-          errorSummary.setAttribute('aria-labelledby', 'error-summary-title');
-          errorSummary.setAttribute('role', 'alert');
-          errorSummary.setAttribute('tabindex', '-1');
-          errorSummary.innerHTML = `
+        const selectedOption = document.querySelector('input[name="whereDoYouLive"]:checked');
+        if (selectedOption) {
+            if (selectedOption.value === "yes") {
+                window.location.href = "question13a-radio.html";
+            } else if (selectedOption.value === "no") {
+                window.location.href = "question13b-text-area.html";
+            }
+        } else {
+            const errorSummary = document.createElement('div');
+            errorSummary.id = 'error-summary';
+            errorSummary.className = 'govuk-error-summary';
+            errorSummary.setAttribute('aria-labelledby', 'error-summary-title');
+            errorSummary.setAttribute('role', 'alert');
+            errorSummary.setAttribute('tabindex', '-1');
+            errorSummary.innerHTML = `
               <h2 class="govuk-error-summary__title" id="error-summary-title">
                   There is a problem
               </h2>
@@ -104,15 +130,33 @@
                   </ul>
               </div>
           `;
-          errorContainer.prepend(errorSummary);
-          errorSummary.focus();
+            errorContainer.prepend(errorSummary);
+            errorSummary.focus();
 
-          if (errorMessage) {
-              errorMessage.style.display = 'block';
-              errorIndicator.className = 'govuk-form-group--error govuk-!-margin-bottom-5';
-          }
-      }
-  }
+            if (errorMessage) {
+                errorMessage.style.display = 'block';
+                errorIndicator.className = 'govuk-form-group--error govuk-!-margin-bottom-5';
+            }
+        }
+    }
+
+    document.querySelectorAll('input[name="whereDoYouLive"]').forEach((radio) => {
+        radio.addEventListener('change', function () {
+            // Hide both text boxes first
+            document.getElementById('additional-info-yes').style.display = 'none';
+            document.getElementById('additional-info-no').style.display = 'none';
+
+            // Show the one related to the selected radio
+            if (this.value === 'yes') {
+                document.getElementById('additional-info-yes').style.display = 'block';
+            } else if (this.value === 'no') {
+                document.getElementById('additional-info-no').style.display = 'block';
+            }
+        });
+    });
+
+
+
 </script>
 
 {% endblock %}

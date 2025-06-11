@@ -14,13 +14,15 @@
     }
 
     .decorate-file-list {
-        border-bottom: 1px solid #b1b4b6; /* Updated to GOV.UK gray */
+        border-bottom: 1px solid #b1b4b6;
+        /* Updated to GOV.UK gray */
         padding-bottom: 15px;
     }
 
     .decorate-file-upload {
         margin-top: 20px;
-        border: 4px dashed #0b0c0c; /* Updated to GOV.UK black */
+        border: 4px dashed #0b0c0c;
+        /* Updated to GOV.UK black */
         padding: 30px !important;
     }
 
@@ -43,23 +45,27 @@
             <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">
                 <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
                     <h1 class="govuk-fieldset__heading">
-                        Upload any of the following documents, dated prior to the 
-                        commissioning date of the system, to evidence this
+                        Upload supporting documents
                     </h1>
                 </legend>
                 <div id="passport-issued-hint" class="govuk-hint">
 
-                    <!--p class="govuk-hint" style="margin-bottom: 0px;">We use these photos to confirm the property type and the installation.</p>
-                    <p class="govuk-hint" style="margin-top: 20px;">Your photos need to show:</p>-->
+                    <p class="govuk-hint" style="margin-bottom: 0px;">
+                        Provide any documents you have to show someone lived in the property. For example:
+                    </p>
                     <ul style="margin-top: 8px;">
-                        <li class="govuk-hint" style="margin-bottom: 4px;">A Utility Bill dated OR;</li>
-                        <li class="govuk-hint" style="margin-bottom: 4px;">A council tax bill OR;</li>
-                        <li class="govuk-hint" style="margin-bottom: 4px;">TV Licence</li>
+                        <li class="govuk-hint" style="margin-bottom: 4px;">a utility Bill dated</li>
+                        <li class="govuk-hint" style="margin-bottom: 4px;">a council tax bill</li>
+                        <li class="govuk-hint" style="margin-bottom: 4px;">a TV Licence</li>
                     </ul>
 
-                    <!--<p class="govuk-hint" style="margin-top: 20px;">If the installation is not complete, take a photo of what it looks like now. We can review the work in progress.</p>-->
+                    <p class="govuk-hint" style="margin-top: 20px;">
+                        Documents must be dated before the 
+                        commissioning date of the renewable heat technology.
+                    </p>
 
-                    <p class="govuk-hint" style="margin-bottom: 8px;">You can upload photos or scanned copies of paper documents.</p>
+                    <p class="govuk-hint" style="margin-bottom: 8px;">You can upload photos or scanned copies of paper
+                        documents.</p>
 
                     <p class="govuk-hint" style="margin-bottom: 0px;">Files must:</p>
                     <ul style="margin-top: 8px;">
@@ -94,10 +100,12 @@
                             Upload a file
                         </label>
                         <div class="decorate-file-upload">
-                            <input class="govuk-file-upload moj-multi-file-upload__input" id="documents" name="documents" type="file" multiple="" hidden>
+                            <input class="govuk-file-upload moj-multi-file-upload__input" id="documents"
+                                name="documents" type="file" multiple="" hidden>
                             <label for="documents" class="decorate-file-input-label govuk-body">
                                 <span class="govuk-!-margin-right-4">Drag and drop files here or</span>
-                                <span class="govuk-button govuk-button--secondary govuk-!-margin-top-6">Choose files</span>
+                                <span class="govuk-button govuk-button--secondary govuk-!-margin-top-6">Choose
+                                    files</span>
                             </label>
                         </div>
 
@@ -116,7 +124,8 @@
         </button>
 
         <p class="govuk-body">
-            <a href="/v01/complete-questionnaire/second-section-incomplete.html" class="govuk-link govuk-link--no-visited-state">Finish later</a>
+            <a href="/v01/complete-questionnaire/second-section-incomplete.html"
+                class="govuk-link govuk-link--no-visited-state">Finish later</a>
         </p>
 
 
@@ -183,31 +192,31 @@
 
 <script>
 
-   function navigateBasedOnSelection() {
-       const errorContainer = document.getElementById('error-container');
-       const errorIndicator = document.getElementById('error-indicator');
-       const existingErrorSummary = document.getElementById('error-summary');
-       const errorMessage = document.getElementById('radio-error-message');
-       const fileAddedDiv = document.getElementById('file_added');
+    function navigateBasedOnSelection() {
+        const errorContainer = document.getElementById('error-container');
+        const errorIndicator = document.getElementById('error-indicator');
+        const existingErrorSummary = document.getElementById('error-summary');
+        const errorMessage = document.getElementById('radio-error-message');
+        const fileAddedDiv = document.getElementById('file_added');
 
-       // Remove existing error summary if present
-       if (existingErrorSummary) {
-           existingErrorSummary.remove();
-       }
+        // Remove existing error summary if present
+        if (existingErrorSummary) {
+            existingErrorSummary.remove();
+        }
 
-       if (errorMessage) {
-           errorMessage.style.display = 'none';
-       }
+        if (errorMessage) {
+            errorMessage.style.display = 'none';
+        }
 
-       // Check if any files have been added
-       if (!fileAddedDiv || fileAddedDiv.children.length === 0) {
-           const errorSummary = document.createElement('div');
-           errorSummary.id = 'error-summary';
-           errorSummary.className = 'govuk-error-summary';
-           errorSummary.setAttribute('aria-labelledby', 'error-summary-title');
-           errorSummary.setAttribute('role', 'alert');
-           errorSummary.setAttribute('tabindex', '-1');
-           errorSummary.innerHTML = `
+        // Check if any files have been added
+        if (!fileAddedDiv || fileAddedDiv.children.length === 0) {
+            const errorSummary = document.createElement('div');
+            errorSummary.id = 'error-summary';
+            errorSummary.className = 'govuk-error-summary';
+            errorSummary.setAttribute('aria-labelledby', 'error-summary-title');
+            errorSummary.setAttribute('role', 'alert');
+            errorSummary.setAttribute('tabindex', '-1');
+            errorSummary.innerHTML = `
                <h2 class="govuk-error-summary__title" id="error-summary-title">
                    There is a problem
                </h2>
@@ -220,23 +229,20 @@
                </div>
            `;
 
-           errorContainer.prepend(errorSummary);
-           errorSummary.focus();
+            errorContainer.prepend(errorSummary);
+            errorSummary.focus();
 
-           if (errorMessage) {
-               errorMessage.style.display = 'block';
-               errorIndicator.className = 'govuk-form-group govuk-form-group--error';
-           }
-       } else {
-           // Navigate to the next question if a file has been added
-           window.location.href = "/v01/complete-questionnaire/second-section-completed.html";
-       }
-   }
+            if (errorMessage) {
+                errorMessage.style.display = 'block';
+                errorIndicator.className = 'govuk-form-group govuk-form-group--error';
+            }
+        } else {
+            // Navigate to the next question if a file has been added
+            window.location.href = "check-your-answer.html";
+        }
+    }
 </script>
 
 
 
 {% endblock %}
-
-
-
