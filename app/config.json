@@ -1,5 +1,10 @@
 {
-  "serviceName": "Boiler Upgrade Scheme Desk Audit"
+  "serviceName": "Boiler Upgrade Scheme Desk Audit",
+  "plugins": {
+    "govuk-frontend": {
+    "rebrand": true
+    }
+  }
 }
 
 

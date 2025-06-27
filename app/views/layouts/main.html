@@ -7,7 +7,12 @@ https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
 
 {% block header %}
 
-{{ govukHeader({classes: "govuk-header--full-width-border"}) }}
+<!-- {{ govukHeader({classes: "govuk-header--full-width-border"}) }} -->
+
+{{ govukHeader({
+  rebrand: true
+}) }}
+
 
 {{
  govukServiceNavigation({
@@ -18,5 +23,15 @@ https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
   })
 }}
 
+
+{% endblock %}
+
+{% set govukRebrand = true %}
+
+{% block footer %}
+
+{{ govukFooter({
+  rebrand: true
+}) }}
 
 {% endblock %}
