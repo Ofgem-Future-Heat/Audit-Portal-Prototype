@@ -19,56 +19,59 @@
             <fieldset class="govuk-fieldset">
                 <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
                     <h1 class="govuk-fieldset__heading">
-                        Who was the previous owner of the plot?
+                        Previous funding for renewable heat technologies
                     </h1>
                 </legend>
-                <div id="hint" class="govuk-hint">
-                    Select Yes even if they were only involved in some of the design.
-                </div>
+
+                <p style="margin-top: 20px;">
+                    We need to know about any previous funding. This includes public funding or energy company funding,
+                    like:
+                <ul class="govuk-body">
+                    <li>Domestic Renewable Heating Incentive (DRHI)</li>
+                    <li>Non-Domestic Renewable Heating Incentive (Non-DRHI)</li>
+                    <li>Energy Company Obligation 4 (ECO4)</li>
+                </ul>
+                </p>
 
                 <!-- Error message container -->
 
                 <span id="radio-error-message" class="govuk-error-message" style="display: none;">
-                    <span class="govuk-visually-hidden">Error:</span> Select if the person(s) or company who sold or
-                    transferred the plot to you where your property was constructed took part in the design of the
-                    property
+                    <span class="govuk-visually-hidden">Error:</span> Select an option
                 </span>
 
-<div class="govuk-form-group">
-  <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
-    <div class="govuk-radios" data-module="govuk-radios">
-      
-      <div class="govuk-radios__item">
-        <input class="govuk-radios__input" id="contact-2" name="contact" type="radio" value="yes" data-aria-controls="conditional-contact-2">
-        <label class="govuk-label govuk-radios__label" for="contact-2">
-          An individual
-        </label>
-      </div>
-      <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact-2">
-        <div class="govuk-form-group">
-          <label class="govuk-label" for="contact-by-phone">
-            <b>Label</b>
-          </label>
-          <input class="govuk-input govuk-!-width-one-third" id="contact-by-phone" name="contactByPhone" type="tel" autocomplete="tel">
-        </div>
-      </div>
-      <div class="govuk-radios__item">
-        <input class="govuk-radios__input" id="contact-3" name="contact" type="radio" value="no" data-aria-controls="conditional-contact-3">
-        <label class="govuk-label govuk-radios__label" for="contact-3">
-          A company
-        </label>
-      </div>
-      <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact-3">
-        <div class="govuk-form-group">
-          <label class="govuk-label" for="contact-by-text">
-            <b>Label</b>
-          </label>
-          <input class="govuk-input govuk-!-width-one-third" id="contact-by-text" name="contactByText" type="tel" autocomplete="tel">
-        </div>
-      </div>
-    </div>
-  </fieldset>
-</div>
+                <div class="govuk-radios" data-module="govuk-radios">
+                    <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="whereDoYouLive" name="whereDoYouLive" type="radio"
+                            value="yes">
+                        <label class="govuk-label govuk-radios__label" for="whereDoYouLive">
+                            Yes
+                        </label>
+                    </div>
+                    <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="whereDoYouLive-2" name="whereDoYouLive" type="radio"
+                            value="no">
+                        <label class="govuk-label govuk-radios__label" for="whereDoYouLive-2">
+                            No
+                        </label>
+                    </div>
+                    <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="whereDoYouLive-3" name="whereDoYouLive" type="radio"
+                            value="no">
+                        <label class="govuk-label govuk-radios__label" for="whereDoYouLive-3">
+                            I do not know
+                        </label>
+                    </div>
+                </div>
+
+
+
+                <div class="govuk-form-group" style="margin-top: 40px;">
+                    <label class="govuk-label" for="more-detail">
+                        Can you provide more detail? <br>
+                    </label>
+                    <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5"></textarea>
+                </div>
+
             </fieldset>
         </div>
 
@@ -77,7 +80,7 @@
         </button>
 
         <p class="govuk-body">
-            <a href="/v01/complete-questionnaire/second-section-incomplete.html"
+            <a href="/v01/complete-questionnaire/third-section-incomplete.html"
                 class="govuk-link govuk-link--no-visited-state">Finish later</a>
         </p>
 
@@ -100,12 +103,12 @@
             errorMessage.style.display = 'none';
         }
 
-        const selectedOption = document.querySelector('input[name="contact"]:checked');
+        const selectedOption = document.querySelector('input[name="whereDoYouLive"]:checked');
         if (selectedOption) {
             if (selectedOption.value === "yes") {
-                window.location.href = "question13a-radio.html";
+                window.location.href = "question24-radio-textarea.html";
             } else if (selectedOption.value === "no") {
-                window.location.href = "question13b-text-area.html";
+                window.location.href = "question24-radio-textarea.html";
             }
         } else {
             const errorSummary = document.createElement('div');
@@ -121,7 +124,7 @@
               <div class="govuk-error-summary__body">
                   <ul class="govuk-list govuk-error-summary__list">
                       <li>
-                          <a href="#whereDoYouLive">Select if the person(s) or company who sold or transferred the plot to you where your property was constructed took part in the design of the property</a>
+                          <a href="#whereDoYouLive">Select an option</a>
                       </li>
                   </ul>
               </div>
@@ -134,10 +137,7 @@
                 errorIndicator.className = 'govuk-form-group--error govuk-!-margin-bottom-5';
             }
         }
-    };
-
-
-
+    }
 </script>
 
 {% endblock %}

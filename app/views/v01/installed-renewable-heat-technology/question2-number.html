@@ -1,0 +1,116 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<style>
+    .govuk-fieldset__heading {
+        margin-top: 16px;
+    }
+</style>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+
+        <a href="javascript:history.back()" class="govuk-back-link">Back</a>
+
+        <div id="error-container"></div>
+
+        <div class="govuk-form-group" id="error-indicator">
+            <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">
+                <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                    <h1 class="govuk-fieldset__heading">
+                        What’s the capacity of the renewable heating system?
+                    </h1>
+                </legend>
+                <!-- Error message container -->
+
+                <span id="radio-error-message" class="govuk-error-message" style="display: none;">
+                    <span class="govuk-visually-hidden">Error:</span> Enter a value.
+                </span>
+
+                <p class="govuk-hint">You can see this on the nameplate of the heating system. You might also find it in the handover pack from your installer.For example, 10kW</p>
+                <div class="govuk-form-group">
+                    <div class="govuk-input__wrapper">
+                      <input class="govuk-input govuk-input--width-20" id="weight" name="weight" type="number" spellcheck="false">
+                      <div class="govuk-input__suffix" aria-hidden="true">kW</div>
+                    </div>
+                  </div>
+                <br><br>
+
+                <button type="submit" class="govuk-button" data-module="govuk-button"
+                    onclick="navigateBasedOnSelection()">
+                    Save and continue
+                </button>
+
+                <p class="govuk-body">
+                    <a href="/v01/complete-questionnaire/third-section-incomplete.html"
+                        class="govuk-link govuk-link--no-visited-state">Finish later</a>
+                </p>
+
+
+        </div>
+    </div>
+
+    <script>
+        function navigateBasedOnSelection() {
+            const errorContainer = document.getElementById('error-container');
+            const errorIndicator = document.getElementById('error-indicator');
+            const existingErrorSummary = document.getElementById('error-summary');
+            const errorMessage = document.getElementById('radio-error-message');
+            const errorMessage2 = document.getElementById('radio-error-message2');
+
+
+            // Remove existing error summary if present
+            if (existingErrorSummary) {
+                existingErrorSummary.remove();
+            }
+
+            if (errorMessage) {
+                errorMessage.style.display = 'none';
+            }
+            if (errorMessage2){
+                errorMessage2.style.display = 'none';
+            }
+
+            const dayInput = document.getElementById('weight');
+
+            // Check if any of the input fields are empty
+            if (!dayInput.value) {
+                const errorSummary = document.createElement('div');
+                errorSummary.id = 'error-summary';
+                errorSummary.className = 'govuk-error-summary';
+                errorSummary.setAttribute('aria-labelledby', 'error-summary-title');
+                errorSummary.setAttribute('role', 'alert');
+                errorSummary.setAttribute('tabindex', '-1');
+                errorSummary.innerHTML = `
+              <h2 class="govuk-error-summary__title" id="error-summary-title">
+                  There is a problem
+              </h2>
+              <div class="govuk-error-summary__body">
+                  <ul class="govuk-list govuk-error-summary__list">
+                      <li>
+                          <a href="#passport-issued">Fill out the box below</a>
+                      </li>
+                  </ul>
+              </div>
+          `;
+                errorContainer.prepend(errorSummary);
+                errorSummary.focus();
+
+                if (errorMessage) {
+                    errorMessage.style.display = 'block';
+                    errorIndicator.className = 'govuk-form-group govuk-form-group--error';
+                }
+                if (errorMessage2) {
+                    errorMessage2.style.display = 'block';
+                    errorIndicator.className = 'govuk-form-group govuk-form-group--error';
+                }
+            } else {
+                // Navigate to the next question if all fields are filled
+                window.location.href = "question3-radio-textarea.html";
+            }
+        }
+    </script>
+
+
+    {% endblock %}

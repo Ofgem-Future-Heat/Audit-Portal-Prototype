@@ -1,0 +1,414 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<style>
+    .govuk-heading-l {
+        margin-top: 16px;
+    }
+
+    .govuk-summary-list__value {
+        padding-left: 80px; /* Increased margin to move text further to the right */
+        width: 320px; /* Set a fixed width for the value column */
+    }
+
+    .govuk-summary-list__key {
+        width: 420px; /* Set a fixed width for the key column */
+    }
+</style>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+        <a href="javascript:history.back()" class="govuk-back-link">Back</a>
+
+
+        <h1 class="govuk-heading-l">Check your answers</h1>
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    What type of technology is your new renewable heating system?
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    Air Source Heat Pump <br />
+                    Biomass Boiler
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="question1-checkbox.html">Change<span class="govuk-visually-hidden"> name</span></a>
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    What is the capacity of the renewable heating system?
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    1200kW
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="question2-number.html">Change<span class="govuk-visually-hidden"> date of birth</span></a>
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    About your renewable heating system
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    No
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="question3-radio-textarea.html">Change<span class="govuk-visually-hidden"> customer reference</span></a>
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Can you provide more detail?
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    Here are the details
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="question3-radio-textarea.html">Change<span class="govuk-visually-hidden"> contact details</span></a>
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Whene was the new renewable heating system commissioned?
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    5 January 2023 (estimate)
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="question4-date.html">Change<span class="govuk-visually-hidden"> customer reference</span></a>
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                   About your renewable heating system
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    No
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="question5-radio-textarea.html">Change<span class="govuk-visually-hidden"> address</span></a>
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Can you provide more detail?
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    Here are the details
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="question5-radio-textarea.html">Change<span class="govuk-visually-hidden"> contact details</span></a>
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    When was the new system capable of providing heat and hot water to the whole property?
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    5 January 2023 (estimate)
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="question6-date.html">Change<span class="govuk-visually-hidden"> contact details</span></a>
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Was every part of the renewable heat technology commussioned after 1 April 2022?
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    Yes
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="question7-radio.html">Change<span class="govuk-visually-hidden"> contact details</span></a>
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Does the renewable heat technology provide any of the following?
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    Space heating
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="question8-checkboxes.html">Change<span class="govuk-visually-hidden"> contact details</span></a>
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Is your property connected to the gas grid?
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    No
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="question9-radios.html">Change<span class="govuk-visually-hidden"> contact details</span></a>
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Has your property been connected to the gas grid in the past?
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    I do not know
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="question9no-radio.html">Change<span class="govuk-visually-hidden"> contact details</span></a>
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Did you already have a heating system at the property before this installation?
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    Yes
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="question10-radio.html">Change<span class="govuk-visually-hidden"> contact details</span></a>
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    What type of heating system did your property have before?
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    Another type of heating system <br />
+                    Detailed description of another system
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="question11-radios.html">Change<span class="govuk-visually-hidden"> contact details</span></a>
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                   Upload documents about the property's previous heating system
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    photo1.img <br />
+                    fuel_receipts.img <br />
+                    gas_bills.pdf
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="question12-file-upload.html">Change<span class="govuk-visually-hidden"> contact details</span></a>
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Can any part of your previous system still heat the property?
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    No
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="question13-radio-textarea.html">Change<span class="govuk-visually-hidden"> contact details</span></a>
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Can you provide more detail?
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    Here are the details
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="question13-radio-textarea.html">Change<span class="govuk-visually-hidden"> contact details</span></a>
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    At the property, where is the renewable heat technology?
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    Yes
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="question14-textarea.html">Change<span class="govuk-visually-hidden"> contact details</span></a>
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Is the renewable heat technology in good condition and working well?
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    Yes
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="question15-radio-textarea.html">Change<span class="govuk-visually-hidden"> contact details</span></a>
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Can you provide more detail?
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    Here are the details
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="question15-radio-textarea.html">Change<span class="govuk-visually-hidden"> contact details</span></a>
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Has the renewable heat technology had any repairs or replacement parts?
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    Yes
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="question16-radio-textarea.html">Change<span class="govuk-visually-hidden"> contact details</span></a>
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Can you provide more detail?
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    Here are the details
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="question16-radio-textarea.html">Change<span class="govuk-visually-hidden"> contact details</span></a>
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Are there any additional heating sources on your property?
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    Yes
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="question17-radio.html">Change<span class="govuk-visually-hidden"> contact details</span></a>
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Can you provide more detail about any additional heating source or system?
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    Yes
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="question18-textarea.html">Change<span class="govuk-visually-hidden"> contact details</span></a>
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                   Upload photos of any additional heating source or system?
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    file.png
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="question19-file-upload.html">Change<span class="govuk-visually-hidden"> contact details</span></a>
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                   Before your new installation, has there ever been a heat pump or Biomass
+                   boiler at the property>
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    Yes
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="question20-radio-textarea.html">Change<span class="govuk-visually-hidden"> contact details</span></a>
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                   Can you provide more detail?
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    Here are the details
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="question20-radio-textarea.html">Change<span class="govuk-visually-hidden"> contact details</span></a>
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                   When was the previous heat pump or biomass boiler installed?
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    5 January 2023 (estimate)
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="question21-date.html">Change<span class="govuk-visually-hidden"> contact details</span></a>
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    When was the previous heat pump or biomass boiler removed?
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    5 January 2023 (estimate)
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="question22-date.html">Change<span class="govuk-visually-hidden"> contact details</span></a>
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Have you ever had funding to help pay for a previous heat pump or biomass boiler at the property?
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    Yes
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="question23-radio-textarea.html">Change<span class="govuk-visually-hidden"> contact details</span></a>
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                   Can you provide more detail?
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    Here are the details
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="question23-radio-textarea.html">Change<span class="govuk-visually-hidden"> contact details</span></a>
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Have any previous owners ever had funding to help pay for a heat pump or biomass boiler at the property?
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    Yes
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="question24-radio-textarea.html">Change<span class="govuk-visually-hidden"> contact details</span></a>
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                   Can you provide more detail?
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    Here are the details
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="question24-radio-textarea.html">Change<span class="govuk-visually-hidden"> contact details</span></a>
+                </dd>
+            </div>
+        </dl>
+
+        <button type="submit" class="govuk-button" data-module="govuk-button" onclick="location.href='/v01/complete-questionnaire/third-section-completed.html'">
+            Save and continue
+        </button>
+
+        <br />
+        <br />
+        <p class="govuk-body">
+            <a href="/v01/complete-questionnaire/third-section-incomplete.html" class="govuk-link govuk-link--no-visited-state">Finish later</a>
+        </p>
+
+
+
+
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,127 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<style>
+    .govuk-fieldset__heading {
+        margin-top: 16px;
+    }
+</style>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+
+        <a href="javascript:history.back()" class="govuk-back-link">Back</a>
+
+        <div id="error-container"></div>
+
+        <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+                <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                    <h1 class="govuk-fieldset__heading">
+                        Does the renewable heat technology provide any of the following?
+                    </h1>
+                </legend>
+                <p class="govuk-hint">Please tick all that apply</p>
+                <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                    <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox"
+                            value="carcasses">
+                        <label class="govuk-label govuk-checkboxes__label" for="waste">
+                            Space heating
+                        </label>
+                    </div>
+                    <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="waste-2" name="waste" type="checkbox" value="mines">
+                        <label class="govuk-label govuk-checkboxes__label" for="waste-2">
+                            Domestic hot water heating
+                        </label>
+                    </div>
+                    <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="contact-3" name="waste" type="checkbox" value="farm"
+                            data-aria-controls="conditional-contact-3">
+                        <label class="govuk-label govuk-checkboxes__label" for="contact-3">
+                            Heating for other purposes
+                        </label>
+                    </div>
+                    <div class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden"
+                        id="conditional-contact-3">
+                        <div class="govuk-form-group">
+                            <label class="govuk-label" for="contact-by-text">
+                                Tell us what other type of heating
+                            </label>
+                            <input class="govuk-input govuk-!-width-one-third" id="contact-by-text" name="contactByText"
+                                type="text">
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+
+        <button type="button" class="govuk-button" data-module="govuk-button" onclick="navigateBasedOnSelection()">
+            Save and continue
+        </button>
+
+        <p class="govuk-body">
+            <a href="/v01/complete-questionnaire/third-section-incomplete.html"
+                class="govuk-link govuk-link--no-visited-state">Finish later</a>
+        </p>
+
+    </div>
+</div>
+
+<script>
+    function navigateBasedOnSelection() {
+        const errorContainer = document.getElementById('error-container');
+        const errorIndicator = document.getElementById('error-indicator');
+        const existingErrorSummary = document.getElementById('error-summary');
+        const errorMessage = document.getElementById('radio-error-message');
+        const otherheat = document.getElementById('contact-by-text');
+
+
+        if (existingErrorSummary) {
+            existingErrorSummary.remove();
+        }
+
+        if (errorMessage) {
+            errorMessage.style.display = 'none';
+        }
+
+        const selectedOption = document.querySelector('input[name="waste"]:checked');
+        if (selectedOption.value === "carcasses" || selectedOption.value === "mines") {
+            window.location.href = "question9-radios.html";
+        }
+        else if (selectedOption.value === "farm" && otherheat.value != "") {
+            window.location.href = "question9-radios.html";
+        }
+        else {
+            const errorSummary = document.createElement('div');
+            errorSummary.id = 'error-summary';
+            errorSummary.className = 'govuk-error-summary';
+            errorSummary.setAttribute('aria-labelledby', 'error-summary-title');
+            errorSummary.setAttribute('role', 'alert');
+            errorSummary.setAttribute('tabindex', '-1');
+            errorSummary.innerHTML = `  
+              <h2 class="govuk-error-summary__title" id="error-summary-title">  
+                  There is a problem  
+              </h2>  
+              <div class="govuk-error-summary__body">  
+                  <ul class="govuk-list govuk-error-summary__list">  
+                      <li>  
+                          <a href="#whereDoYouLive">Select any which apply</a>  
+                      </li>  
+                  </ul>  
+              </div>  
+          `;
+            errorContainer.prepend(errorSummary);
+            errorSummary.focus();
+
+            if (errorMessage) {
+                errorMessage.style.display = 'block';
+                errorIndicator.className = 'govuk-form-group--error govuk-!-margin-bottom-5';
+            }
+        }
+    }  
+</script>
+
+{% endblock %}

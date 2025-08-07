@@ -1,0 +1,144 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<style>
+    .govuk-fieldset__heading {
+        margin-top: 16px;
+    }
+</style>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+
+        <a href="javascript:history.back()" class="govuk-back-link">Back</a>
+
+        <div id="error-container"></div>
+
+        <div class="govuk-form-group" id="error-indicator">
+            <fieldset class="govuk-fieldset">
+                <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                    <h1 class="govuk-fieldset__heading">
+                        About your renewable heating system
+                    </h1>
+                </legend>
+                    <p style="margin-top: 20px;">Has your new renewable heating system been commissioned?</p>
+
+                <!-- Error message container -->
+
+                <span id="radio-error-message" class="govuk-error-message" style="display: none;">
+                    <span class="govuk-visually-hidden">Error:</span> Select an option
+                </span>
+
+                <div class="govuk-radios" data-module="govuk-radios">
+                    <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="whereDoYouLive" name="whereDoYouLive" type="radio" value="yes">
+                        <label class="govuk-label govuk-radios__label" for="whereDoYouLive">
+                            Yes
+                        </label>
+                    </div>
+                    <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="whereDoYouLive-2" name="whereDoYouLive" type="radio" value="no">
+                        <label class="govuk-label govuk-radios__label" for="whereDoYouLive-2">
+                            No
+                        </label>
+                    </div>
+                </div>
+                <br>
+                <details class="govuk-details">
+                    <summary class="govuk-details__summary">
+                      <span class="govuk-details__summary-text">
+                        How do I know if my new heating system has been commissioned?
+                      </span>
+                    </summary>
+                    <div class="govuk-details__text">
+                        Commissioning is when an installer tests the heating system. 
+                        They do this to make sure the system works and meets industry standards. 
+                        All radiators and underfloor heating pipes must be in place before this happens.
+                        <br><br>
+                        After passing the tests, the system is 'commissioned' as ready to provide heating
+                         and/or hot water.
+                         <br><br>
+                        At this point, you get a Microgeneration Certification Scheme (MCS) certificate. 
+                        This proves the system meets quality standards. Installers should include the MCS certificate
+                         in their handover pack.
+                    </div>
+                  </details>
+
+                
+
+                <div class="govuk-form-group" style="margin-top: 40px;">
+                    <label class="govuk-label" for="more-detail">
+                        Can you provide more detail?
+                    </label>
+                    <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5"></textarea>
+                </div>
+
+            </fieldset>
+        </div>
+
+        <button type="button" class="govuk-button" data-module="govuk-button" onclick="navigateBasedOnSelection()">
+            Save and continue
+        </button>
+
+        <p class="govuk-body">
+            <a href="/v01/complete-questionnaire/third-section-incomplete.html" class="govuk-link govuk-link--no-visited-state">Finish later</a>
+        </p>
+
+    </div>
+</div>
+
+<script>
+
+  function navigateBasedOnSelection() {
+      const errorContainer = document.getElementById('error-container');
+      const errorIndicator = document.getElementById('error-indicator');
+      const existingErrorSummary = document.getElementById('error-summary');
+      const errorMessage = document.getElementById('radio-error-message');
+
+      if (existingErrorSummary) {
+          existingErrorSummary.remove();
+      }
+
+      if (errorMessage) {
+            errorMessage.style.display = 'none';
+          }
+
+      const selectedOption = document.querySelector('input[name="whereDoYouLive"]:checked');
+      if (selectedOption) {
+          if (selectedOption.value === "yes") {
+              window.location.href = "question4-date.html";
+          } else if (selectedOption.value === "no") {
+              window.location.href = "question4-date.html";
+          }
+      } else {
+          const errorSummary = document.createElement('div');
+          errorSummary.id = 'error-summary';
+          errorSummary.className = 'govuk-error-summary';
+          errorSummary.setAttribute('aria-labelledby', 'error-summary-title');
+          errorSummary.setAttribute('role', 'alert');
+          errorSummary.setAttribute('tabindex', '-1');
+          errorSummary.innerHTML = `
+              <h2 class="govuk-error-summary__title" id="error-summary-title">
+                  There is a problem
+              </h2>
+              <div class="govuk-error-summary__body">
+                  <ul class="govuk-list govuk-error-summary__list">
+                      <li>
+                          <a href="#whereDoYouLive">Select an option</a>
+                      </li>
+                  </ul>
+              </div>
+          `;
+          errorContainer.prepend(errorSummary);
+          errorSummary.focus();
+
+          if (errorMessage) {
+              errorMessage.style.display = 'block';
+              errorIndicator.className = 'govuk-form-group--error govuk-!-margin-bottom-5';
+          }
+      }
+  }
+</script>
+
+{% endblock %}

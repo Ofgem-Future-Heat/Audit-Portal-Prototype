@@ -1,0 +1,130 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<style>
+    .govuk-fieldset__heading {
+        margin-top: 16px;
+    }
+</style>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+
+        <a href="javascript:history.back()" class="govuk-back-link">Back</a>
+
+        <div id="error-container"></div>
+
+        <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
+                <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                    <h1 class="govuk-fieldset__heading">
+                        How would you prefer to be contacted?
+                    </h1>
+                </legend>
+                <div id="contact-hint" class="govuk-hint">
+                    Select one option
+                </div>
+                <div class="govuk-radios" data-module="govuk-radios">
+                    <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="contact" name="whereDoYouLive" type="radio" value="email">
+                        <label class="govuk-label govuk-radios__label" for="contact">
+                            A gas, oil or coal system
+                        </label>
+                    </div>
+                    <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="contact-2" name="whereDoYouLive" type="radio" value="phone">
+                        <label class="govuk-label govuk-radios__label" for="contact-2">
+                            An electric system
+                        </label>
+                    </div>
+                    <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="contact-3" name="whereDoYouLive" type="radio" value="text"
+                            data-aria-controls="conditional-contact-3">
+                        <label class="govuk-label govuk-radios__label" for="contact-3">
+                            Another type of heating system
+                        </label>
+                    </div>
+                    <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact-3">
+                        <div class="govuk-form-group">
+                            <label class="govuk-label" for="contact-by-text">
+                                Tell us what type of heating system the property had before
+                            </label>
+                            <input class="govuk-input govuk-!-width-one-third" id="contact-by-text" name="contactByText"
+                                type="text">
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+
+    </div>
+</div>
+
+
+<button type="button" class="govuk-button" data-module="govuk-button" onclick="navigateBasedOnSelection()">
+    Save and continue
+</button>
+
+<p class="govuk-body">
+    <a href="/v01/complete-questionnaire/third-section-incomplete.html"
+        class="govuk-link govuk-link--no-visited-state">Finish later</a>
+</p>
+
+</div>
+</div>
+
+<script>
+
+    function navigateBasedOnSelection() {
+        const errorContainer = document.getElementById('error-container');
+        const errorIndicator = document.getElementById('error-indicator');
+        const existingErrorSummary = document.getElementById('error-summary');
+        const errorMessage = document.getElementById('radio-error-message');
+        const checkinput = document.getElementById('contact-by-text')
+
+        if (existingErrorSummary) {
+            existingErrorSummary.remove();
+        }
+
+        if (errorMessage) {
+            errorMessage.style.display = 'none';
+        }
+
+        const selectedOption = document.querySelector('input[name="whereDoYouLive"]:checked');
+        if (selectedOption && selectedOption.value != 'text') {
+            window.location.href = "question12-file-upload.html"
+        }
+        else if(selectedOption.value == 'text' && checkinput.value != ""){
+            window.location.href = "question12-file-upload.html"
+        } else {
+            const errorSummary = document.createElement('div');
+            errorSummary.id = 'error-summary';
+            errorSummary.className = 'govuk-error-summary';
+            errorSummary.setAttribute('aria-labelledby', 'error-summary-title');
+            errorSummary.setAttribute('role', 'alert');
+            errorSummary.setAttribute('tabindex', '-1');
+            errorSummary.innerHTML = `
+              <h2 class="govuk-error-summary__title" id="error-summary-title">
+                  There is a problem
+              </h2>
+              <div class="govuk-error-summary__body">
+                  <ul class="govuk-list govuk-error-summary__list">
+                      <li>
+                          <a href="#whereDoYouLive">Select an option</a>
+                      </li>
+                  </ul>
+              </div>
+          `;
+            errorContainer.prepend(errorSummary);
+            errorSummary.focus();
+
+            if (errorMessage) {
+                errorMessage.style.display = 'block';
+                errorIndicator.className = 'govuk-form-group--error govuk-!-margin-bottom-5';
+            }
+        }
+    }
+</script>
+
+{% endblock %}
