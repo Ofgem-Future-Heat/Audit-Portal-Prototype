@@ -88,9 +88,13 @@
           }
 
       const selectedOption = document.querySelector('input[name="whereDoYouLive"]:checked');
-      if (selectedOption) {
+      if (selectedOption && selectedOption.value != 'abroad') {
         window.location.href="question18-textarea.html"
-      } else {
+      }
+      else if (selectedOption.value == "abroad"){
+        window.location.href="question20-radio-textarea.html"
+      } 
+      else {
           const errorSummary = document.createElement('div');
           errorSummary.id = 'error-summary';
           errorSummary.className = 'govuk-error-summary';
